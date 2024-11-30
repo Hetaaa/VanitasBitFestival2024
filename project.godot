@@ -118,6 +118,7 @@ attack={
 [layer_names]
 
 2d_physics/layer_10="hitting"
+2d_physics/layer_11="gethit"
 
 [rendering]
 
