@@ -10,7 +10,7 @@ func Enter():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func PhysicsUpdate(delta):
-	if myowner:
+	if myowner.global_position:
 		var direction = null;
 		
 		if myowner.global_position.x - myowner.player.global_position.x >= 0:

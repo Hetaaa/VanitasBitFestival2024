@@ -2,9 +2,9 @@ extends CharacterBody2D
 
 @export var player :CharacterBody2D;
 @export var SPEED = 10.0
-var health = 100
+var health = 20
 var hold = false
-var knockback_force = 100
+var knockback_force = 500
 @onready var col = $col
 @onready var state_machine = $State_Machine
 @onready var hit_area = $Contents/hit_area

@@ -1,0 +1,32 @@
+[gd_scene load_steps=5 format=3 uid="uid://dddj6di8bmmys"]
+
+[ext_resource type="Script" path="res://props/trash.gd" id="1_7hd4j"]
+[ext_resource type="Script" path="res://props/area_2d.gd" id="2_neqky"]
+[ext_resource type="Texture2D" uid="uid://cu4jfwe5j5u7j" path="res://props/sprites/czekolada.png" id="2_vds6y"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_alby4"]
+size = Vector2(100, 105)
+
+[node name="Prop" type="RigidBody2D" groups=["Fant"]]
+scale = Vector2(0.1, 0.1)
+collision_layer = 4
+collision_mask = 4
+script = ExtResource("1_7hd4j")
+
+[node name="Area2D" type="Area2D" parent="."]
+script = ExtResource("2_neqky")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-10, -9.53674e-07)
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_alby4")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("2_vds6y")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
