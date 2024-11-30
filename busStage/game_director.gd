@@ -3,6 +3,7 @@ extends Node2D
 @onready var timer = $Timer
 @onready var backgroundController = $BackgroundController
 @onready var enemySpawner = $EnemySpawner
+@onready var enemySpawner2 = $EnemySpawner2
 @onready var bus = $Bus
 
 
@@ -48,7 +49,8 @@ func _on_timer_timeout() -> void:
 			timer.start()
 			print("Busstate: Stop")
 			
-			enemySpawner.spawn(busStop)
+			enemySpawner.spawn(busStop, 3)
+			enemySpawner2.spawn(busStop, 3)
 		3:
 			state = 0
 			timer.wait_time = 3

@@ -11,13 +11,14 @@ config_version=5
 [application]
 
 config/name="gamjam"
-run/main_scene="res://world.tscn"
+run/main_scene="res://busStage/world.tscn"
 config/features=PackedStringArray("4.3", "GL Compatibility")
 config/icon="res://icon.svg"
 
 [global_group]
 
 hit=""
+Fant=""
 
 [input]
 
