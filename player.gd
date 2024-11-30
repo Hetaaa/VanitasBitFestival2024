@@ -36,5 +36,5 @@ func _physics_process(delta: float) -> void:
 func attack():
 	for overlap in hit_area.get_overlapping_areas():
 		if overlap.is_in_group("hit"):
-			overlap.get_parent().get_hit()
+			overlap.get_parent().get_hit(20, global_position)
 	

@@ -10,7 +10,7 @@ size = Vector2(826.812, 860.279)
 [node name="world" type="Node2D"]
 
 [node name="Player" parent="." instance=ExtResource("1_g808f")]
-position = Vector2(593, 375)
+position = Vector2(592, 446)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(509.5, 656.5)
@@ -18,12 +18,15 @@ scale = Vector2(1.72826, 0.0984204)
 texture = ExtResource("1_m4ioy")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Sprite2D"]
+collision_layer = 3
+collision_mask = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D/StaticBody2D"]
 position = Vector2(-2.37589, 5.73438)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_vhvtn")
 
-[node name="Orzel" parent="." instance=ExtResource("3_04h53")]
-position = Vector2(-39, 368)
+[node name="Orzel" parent="." node_paths=PackedStringArray("player") instance=ExtResource("3_04h53")]
+position = Vector2(37, 164)
 scale = Vector2(1.415, 1.415)
+player = NodePath("../Player")
+SPEED = 100.0
