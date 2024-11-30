@@ -39,7 +39,7 @@ func _physics_process(delta: float) -> void:
 			current_offset +=1
 	elif Input.is_action_pressed("down"):
 		if current_offset > 0:
-
+			
 			col.global_position.y -= 1
 			current_offset -= 1
 	if  Input.is_action_just_pressed("attack"):
@@ -78,4 +78,3 @@ func _on_hitbox_body_entered(body: Node2D) -> void:
 		if body.canDie == 1:
 			body.queue_free()
 			fanty += 1
-

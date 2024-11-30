@@ -11,9 +11,7 @@ config_version=5
 [application]
 
 config/name="gamjam"
-
 run/main_scene="res://busStage/world.tscn"
-
 config/features=PackedStringArray("4.3", "GL Compatibility")
 config/icon="res://icon.svg"
 
@@ -35,11 +33,9 @@ enabled=PackedStringArray("res://addons/dialogue_manager/plugin.cfg")
 [global_group]
 
 hit=""
-
 interact=""
-
 Fant=""
-
+player=""
 
 [input]
 

@@ -36,5 +36,5 @@ func get_hit(dmg, dir):
 func attacking():
 	for overlap in hit_area.get_overlapping_areas():
 		
-		if overlap.is_in_group("hit") and overlap.get_parent().get_parent() != self:
+		if overlap.is_in_group("hit") and overlap.get_parent().get_parent() != self and overlap.get_parent().get_parent().is_in_group("player"):
 			overlap.get_parent().get_parent().get_hit(20, global_position)
