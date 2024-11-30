@@ -1,0 +1,15 @@
+[remap]
+
+importer="dialogue_manager_compiler_13"
+type="Resource"
+uid="uid://v0kofgsgbjg0"
+path="res://.godot/imported/lombard.dialogue-f668450f42ec1ef82a8f83a0e2dad4b7.tres"
+
+[deps]
+
+source_file="res://dialog/lombard.dialogue"
+dest_files=["res://.godot/imported/lombard.dialogue-f668450f42ec1ef82a8f83a0e2dad4b7.tres"]
+
+[params]
+
+defaults=true

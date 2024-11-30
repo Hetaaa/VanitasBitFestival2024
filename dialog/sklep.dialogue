@@ -1,9 +1,17 @@
-~ intro
+~ zabka
 Kasjerka: Hot dog za dyche, chcesz??
 - Kup Hot Doga (10zl) [if get_money() > 10]
 	do give_player()
 	Kasjerka: Smacznego, masz {{get_money()}}
 - Wyjdź
-
 => END
+~ intro2
+Kasjerka: Nie wyglądasz jakbyś miał apke, od razu nabije na siebie.
+=> zabka
 
+~ intro3
+Kasjerka: Jeszcze tylko 12 godzin do końca zmiany :))))) 
+=> zabka
+
+~ intro1
+Kasjerka: Te parówki mają z 2 tygodnie conajmniej, ale no..

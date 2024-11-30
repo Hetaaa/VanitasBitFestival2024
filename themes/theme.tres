@@ -1,11 +1,11 @@
-[gd_resource type="Theme" load_steps=13 format=4 uid="uid://b73y4jutnwuue"]
+[gd_resource type="Theme" load_steps=15 format=4 uid="uid://b73y4jutnwuue"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4dac4"]
 content_margin_left = 0.0
 content_margin_top = 0.0
 content_margin_right = 0.0
 content_margin_bottom = 0.0
-bg_color = Color(0.0666667, 0.0666667, 0.0823529, 0.752941)
+bg_color = Color(0.187648, 0.187658, 0.218396, 0.752941)
 border_width_left = 2
 border_width_top = 2
 border_width_right = 2
@@ -16,6 +16,31 @@ corner_radius_top_right = 3
 corner_radius_bottom_right = 3
 corner_radius_bottom_left = 3
 corner_detail = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_q0iof"]
+bg_color = Color(0.160784, 0.160784, 0.160784, 0.760784)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0, 0, 0, 1)
+border_blend = true
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4ibrg"]
+bg_color = Color(0.48288, 0, 0.106791, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.8, 0.8, 0.8, 0)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
 
 [sub_resource type="Image" id="Image_2tq0k"]
 data = {
@@ -2050,6 +2075,8 @@ content_margin_bottom = 0.0
 
 [resource]
 Panel/styles/panel = SubResource("StyleBoxFlat_4dac4")
+ProgressBar/styles/background = SubResource("StyleBoxFlat_q0iof")
+ProgressBar/styles/fill = SubResource("StyleBoxFlat_4ibrg")
 RichTextLabel/colors/default_color = Color(0.929715, 0.929715, 0.929715, 1)
 RichTextLabel/colors/font_outline_color = Color(0, 0, 0, 1)
 RichTextLabel/colors/font_selected_color = Color(0, 0, 0, 0)
