@@ -1,0 +1,56 @@
+[gd_scene load_steps=8 format=3 uid="uid://b83nmbgv7a6xv"]
+
+[ext_resource type="Script" path="res://player.gd" id="1_r4ocm"]
+[ext_resource type="Texture2D" uid="uid://cs8k1wyp2d7d3" path="res://dobry-omen-zestaw-2-figurek-silacz-papaj-na-kampanie-rpg-25-mm.webp" id="1_u83pi"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4bvyg"]
+atlas = ExtResource("1_u83pi")
+region = Rect2(400, 200, 200, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x0qt0"]
+atlas = ExtResource("1_u83pi")
+region = Rect2(200, 200, 200, 200)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_0f0im"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4bvyg")
+}],
+"loop": true,
+"name": &"left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x0qt0")
+}],
+"loop": true,
+"name": &"right",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lnlw8"]
+size = Vector2(319, 87.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fui8p"]
+size = Vector2(209, 131)
+
+[node name="Player" type="CharacterBody2D"]
+script = ExtResource("1_r4ocm")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_0f0im")
+animation = &"left"
+
+[node name="col" type="CollisionShape2D" parent="."]
+position = Vector2(0, 111.75)
+shape = SubResource("RectangleShape2D_lnlw8")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="hit_area" type="Area2D" parent="."]
+
+[node name="hit_col" type="CollisionShape2D" parent="hit_area"]
+position = Vector2(-153, -39)
+shape = SubResource("RectangleShape2D_fui8p")

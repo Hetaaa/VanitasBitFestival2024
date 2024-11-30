@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://b83nmbgv7a6xv"]
+
+[ext_resource type="Script" path="res://player.gd" id="1_r4ocm"]
+[ext_resource type="Texture2D" uid="uid://cs8k1wyp2d7d3" path="res://dobry-omen-zestaw-2-figurek-silacz-papaj-na-kampanie-rpg-25-mm.webp" id="1_u83pi"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lnlw8"]
+size = Vector2(319, 87.5)
+
+[node name="Player" type="CharacterBody2D"]
+script = ExtResource("1_r4ocm")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, 1.19209e-07)
+scale = Vector2(0.401875, 0.386875)
+texture = ExtResource("1_u83pi")
+
+[node name="col" type="CollisionShape2D" parent="."]
+position = Vector2(0, 111.75)
+shape = SubResource("RectangleShape2D_lnlw8")
+
+[node name="Camera2D" type="Camera2D" parent="."]
