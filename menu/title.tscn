@@ -1,0 +1,52 @@
+[gd_scene load_steps=3 format=3 uid="uid://bp3dk6kfd5ygp"]
+
+[ext_resource type="Texture2D" uid="uid://cwtx2ctif57wr" path="res://busStage/assets/tlo.png" id="1_fbx7d"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_jv000"]
+font_size = 150
+outline_size = 65
+outline_color = Color(0, 0, 0, 1)
+
+[node name="Title" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = -820.0
+offset_top = -298.0
+offset_right = 3007.0
+offset_bottom = 782.0
+texture = ExtResource("1_fbx7d")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 62.0
+offset_top = 8.0
+offset_right = 704.0
+offset_bottom = 575.0
+text = "BUS
+COMBAT"
+label_settings = SubResource("LabelSettings_jv000")
+vertical_alignment = 1
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 784.0
+offset_top = 226.0
+offset_right = 1004.0
+offset_bottom = 262.0
+text = "Start
+"
+
+[node name="Button2" type="Button" parent="."]
+layout_mode = 0
+offset_left = 794.0
+offset_top = 340.0
+offset_right = 1014.0
+offset_bottom = 376.0
+text = "Wyjdź"
