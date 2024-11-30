@@ -1,0 +1,40 @@
+[gd_scene load_steps=7 format=3 uid="uid://d1rbhalexqgng"]
+
+[ext_resource type="Texture2D" uid="uid://c84cnngy0ojkl" path="res://enemy/orzel/images.jpg" id="1_1k8cj"]
+[ext_resource type="Script" path="res://enemy/orzel/orzel.gd" id="1_dtxag"]
+[ext_resource type="Script" path="res://state/state_machine.gd" id="3_8gwtw"]
+[ext_resource type="Script" path="res://enemy/orzel/attack.gd" id="4_5juwu"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_o016g"]
+size = Vector2(198, 198)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_arqml"]
+size = Vector2(260, 234)
+
+[node name="enemy" type="CharacterBody2D"]
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("1_dtxag")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-2, 0)
+shape = SubResource("RectangleShape2D_o016g")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+rotation = 3.14159
+scale = Vector2(1, -1)
+texture = ExtResource("1_1k8cj")
+
+[node name="hitbox" type="Area2D" parent="." groups=["hit"]]
+collision_layer = 512
+collision_mask = 512
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="hitbox"]
+shape = SubResource("RectangleShape2D_arqml")
+
+[node name="State_Machine" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
+script = ExtResource("3_8gwtw")
+initial_state = NodePath("Attack")
+
+[node name="Attack" type="Node" parent="State_Machine"]
+script = ExtResource("4_5juwu")

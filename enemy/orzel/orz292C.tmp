@@ -68,9 +68,4 @@ script = ExtResource("6_2jo5p")
 [node name="Dead" type="Node" parent="State_Machine"]
 script = ExtResource("7_h5xc5")
 
-[node name="change_offset" type="Timer" parent="."]
-wait_time = 0.1
-autostart = true
-
 [connection signal="timeout" from="State_Machine/Stun/stun_timer" to="State_Machine/Stun" method="_on_stun_timer_timeout"]
-[connection signal="timeout" from="change_offset" to="State_Machine/Attack" method="_on_change_offset_timeout"]

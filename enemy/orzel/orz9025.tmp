@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://d1rbhalexqgng"]
+[gd_scene load_steps=10 format=3 uid="uid://d1rbhalexqgng"]
 
 [ext_resource type="Texture2D" uid="uid://c84cnngy0ojkl" path="res://enemy/orzel/images.jpg" id="1_1k8cj"]
 [ext_resource type="Script" path="res://enemy/orzel/orzel.gd" id="1_dtxag"]
@@ -6,10 +6,9 @@
 [ext_resource type="Script" path="res://enemy/orzel/attack.gd" id="4_5juwu"]
 [ext_resource type="Script" path="res://enemy/orzel/stun.gd" id="5_s33ii"]
 [ext_resource type="Script" path="res://enemy/orzel/hit.gd" id="6_2jo5p"]
-[ext_resource type="Script" path="res://enemy/orzel/dead.gd" id="7_h5xc5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_o016g"]
-size = Vector2(246, 41)
+size = Vector2(198, 198)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_arqml"]
 size = Vector2(260, 234)
@@ -21,32 +20,23 @@ size = Vector2(209, 151.25)
 collision_layer = 2
 collision_mask = 2
 script = ExtResource("1_dtxag")
+SPEED = null
 
-[node name="col" type="CollisionShape2D" parent="."]
-position = Vector2(-2, 87.5)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-2, 0)
 shape = SubResource("RectangleShape2D_o016g")
 
-[node name="Contents" type="Node2D" parent="."]
-
-[node name="Sprite2D" type="Sprite2D" parent="Contents"]
+[node name="Sprite2D" type="Sprite2D" parent="."]
 rotation = 3.14159
 scale = Vector2(1, -1)
 texture = ExtResource("1_1k8cj")
 
-[node name="hitbox" type="Area2D" parent="Contents" groups=["hit"]]
+[node name="hitbox" type="Area2D" parent="." groups=["hit"]]
 collision_layer = 512
 collision_mask = 512
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Contents/hitbox"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="hitbox"]
 shape = SubResource("RectangleShape2D_arqml")
-
-[node name="hit_area" type="Area2D" parent="Contents"]
-collision_layer = 512
-collision_mask = 512
-
-[node name="hit_col" type="CollisionShape2D" parent="Contents/hit_area"]
-position = Vector2(159, -21)
-shape = SubResource("RectangleShape2D_qlllm")
 
 [node name="State_Machine" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
 script = ExtResource("3_8gwtw")
@@ -59,18 +49,18 @@ script = ExtResource("4_5juwu")
 script = ExtResource("5_s33ii")
 
 [node name="stun_timer" type="Timer" parent="State_Machine/Stun"]
-wait_time = 0.3
+wait_time = 0.6
 one_shot = true
 
 [node name="Hit" type="Node" parent="State_Machine"]
 script = ExtResource("6_2jo5p")
 
-[node name="Dead" type="Node" parent="State_Machine"]
-script = ExtResource("7_h5xc5")
+[node name="hit_area" type="Area2D" parent="."]
+collision_layer = 512
+collision_mask = 512
 
-[node name="change_offset" type="Timer" parent="."]
-wait_time = 0.1
-autostart = true
+[node name="hit_col" type="CollisionShape2D" parent="hit_area"]
+position = Vector2(159, -21)
+shape = SubResource("RectangleShape2D_qlllm")
 
 [connection signal="timeout" from="State_Machine/Stun/stun_timer" to="State_Machine/Stun" method="_on_stun_timer_timeout"]
-[connection signal="timeout" from="change_offset" to="State_Machine/Attack" method="_on_change_offset_timeout"]
