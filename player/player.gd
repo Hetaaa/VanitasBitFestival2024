@@ -9,6 +9,9 @@ var move_hold : bool = false
 @onready var contents = $Contents
 var direction
 
+func _ready() -> void:
+	money.player = self
+
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
 	if not is_on_floor():
@@ -45,7 +48,9 @@ func attack():
 	for overlap in hit_area.get_overlapping_areas():
 		if overlap.is_in_group("hit") and overlap.get_parent().get_parent() != self:
 			overlap.get_parent().get_parent().get_hit(20, global_position)
-			
+		elif overlap.is_in_group("interact"):
+			print('dawdaw')
+			overlap.get_parent().interact()
 
 	
 	
@@ -59,3 +64,6 @@ func get_hit(dmg, dir):
 			var target_velocity_x = direction * 4000
 			velocity.x = lerp(velocity.x, target_velocity_x, 1.0)
 			velocity.x = clamp(velocity.x, -SPEED, SPEED)
+
+func get_thing():
+	print("I got a thing!")

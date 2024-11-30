@@ -1,0 +1,9 @@
+~ intro
+Kasjerka: Hot dog za dyche, chcesz??
+- Kup Hot Doga (10zl) [if get_money() > 10]
+	do give_player()
+	Kasjerka: Smacznego, masz {{get_money()}}
+- Wyjdź
+
+=> END
+

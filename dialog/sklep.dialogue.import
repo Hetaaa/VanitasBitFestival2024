@@ -1,0 +1,15 @@
+[remap]
+
+importer="dialogue_manager_compiler_13"
+type="Resource"
+uid="uid://b56r0xc8xowgq"
+path="res://.godot/imported/sklep.dialogue-be5a511d7fd611e4570a107bdd90e367.tres"
+
+[deps]
+
+source_file="res://dialog/sklep.dialogue"
+dest_files=["res://.godot/imported/sklep.dialogue-be5a511d7fd611e4570a107bdd90e367.tres"]
+
+[params]
+
+defaults=true

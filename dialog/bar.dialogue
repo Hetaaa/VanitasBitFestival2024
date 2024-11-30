@@ -1,0 +1,17 @@
+~ intro1
+Barman: Wiedziałeś o tym że po 9 piwach możesz przejść pół województwa w jedną noc?
+Barman: Ja przynajmniej tak miałem
+=> shop
+~ intro2
+Barman: Polak nie kaktus musi PIĆ
+=> shop
+~ intro3
+Barman: Kiedyś mój wujek pichcił w piwnicy takie rzeczy... Malinówka, pieprzówka, jajówka od której dostawałeś kurzej ślepoty.
+=> shop
+~ shop
+
+Barman: Co podać majster?
+- Piwko 12% (12zł (aaaa infalcja))
+	do give_player()
+- Wyjdź
+=> END

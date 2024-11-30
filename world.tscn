@@ -1,17 +1,29 @@
 [gd_scene load_steps=6 format=3 uid="uid://b1isyihtsiy5n"]
 
-[ext_resource type="PackedScene" uid="uid://b83nmbgv7a6xv" path="res://player/player.tscn" id="1_g808f"]
 [ext_resource type="Texture2D" uid="uid://qnt5e11fa1ca" path="res://rl1sy731pgk91.webp" id="1_m4ioy"]
-[ext_resource type="PackedScene" uid="uid://d1rbhalexqgng" path="res://enemy/orzel/orzel.tscn" id="3_04h53"]
-[ext_resource type="Script" path="res://state/state.gd" id="4_p0bpf"]
+[ext_resource type="Texture2D" uid="uid://dammxxe8fcluj" path="res://sklep/zabka/zabka.jpg" id="1_mktx1"]
+[ext_resource type="Script" path="res://dialog/sklep.gd" id="2_j8d4f"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ixvjx"]
+radius = 117.835
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vhvtn"]
 size = Vector2(826.812, 860.279)
 
 [node name="world" type="Node2D"]
 
-[node name="Player" parent="." instance=ExtResource("1_g808f")]
-position = Vector2(592, 446)
+[node name="sklep" type="Sprite2D" parent="." groups=["interact"]]
+position = Vector2(25, 257)
+texture = ExtResource("1_mktx1")
+script = ExtResource("2_j8d4f")
+
+[node name="shop_area" type="Area2D" parent="sklep" groups=["interact"]]
+collision_layer = 512
+collision_mask = 512
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="sklep/shop_area"]
+position = Vector2(-73, 55)
+shape = SubResource("CircleShape2D_ixvjx")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(509.5, 656.5)
@@ -25,12 +37,3 @@ collision_mask = 3
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D/StaticBody2D"]
 position = Vector2(-2.37589, 5.73438)
 shape = SubResource("RectangleShape2D_vhvtn")
-
-[node name="Orzel" parent="." node_paths=PackedStringArray("player") instance=ExtResource("3_04h53")]
-position = Vector2(37, 164)
-scale = Vector2(1.415, 1.415)
-player = NodePath("../Player")
-SPEED = 100.0
-
-[node name="State" type="Node" parent="."]
-script = ExtResource("4_p0bpf")
