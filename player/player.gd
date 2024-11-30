@@ -2,6 +2,9 @@ extends CharacterBody2D
 
 @onready var col = $col
 const SPEED = 300.0
+
+var fanty = 0
+
 var offset_treshold =60;
 var current_offset = 0;
 var move_hold : bool = false
@@ -65,5 +68,14 @@ func get_hit(dmg, dir):
 			velocity.x = lerp(velocity.x, target_velocity_x, 1.0)
 			velocity.x = clamp(velocity.x, -SPEED, SPEED)
 
+
 func get_thing():
 	print("I got a thing!")
+
+
+func _on_hitbox_body_entered(body: Node2D) -> void:
+	if body.is_in_group("Fant"):
+		if body.canDie == 1:
+			body.queue_free()
+			fanty += 1
+
