@@ -1,0 +1,91 @@
+[gd_scene load_steps=9 format=3 uid="uid://dlajimkc33lpr"]
+
+[ext_resource type="Texture2D" uid="uid://bknt8om01avtm" path="res://busStage/assets/bus.png" id="1_ixtao"]
+[ext_resource type="Script" path="res://busStage/background_controller.gd" id="2_ww0k3"]
+[ext_resource type="Script" path="res://busStage/game_director.gd" id="2_xunmq"]
+[ext_resource type="Script" path="res://busStage/enemy_spawner.gd" id="3_5fa7t"]
+[ext_resource type="Texture2D" uid="uid://cwtx2ctif57wr" path="res://busStage/assets/tlo.png" id="3_m46g4"]
+[ext_resource type="Script" path="res://busStage/bus.gd" id="6_0nbmv"]
+
+[sub_resource type="SystemFont" id="SystemFont_uva26"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_essdf"]
+font = SubResource("SystemFont_uva26")
+font_size = 35
+font_color = Color(1, 0.79, 0.1, 0.8)
+outline_size = 6
+outline_color = Color(0.6, 0, 0, 1)
+
+[node name="World" type="Node2D"]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(-925, 36)
+scale = Vector2(3, 3)
+zoom = Vector2(0.8, 0.8)
+limit_left = -1475
+limit_right = 1450
+
+[node name="GameDirector" type="Node2D" parent="."]
+script = ExtResource("2_xunmq")
+
+[node name="EnemySpawner" type="Node2D" parent="GameDirector"]
+position = Vector2(7, -25)
+script = ExtResource("3_5fa7t")
+
+[node name="Timer" type="Timer" parent="GameDirector"]
+one_shot = true
+autostart = true
+
+[node name="BackgroundController" type="Node2D" parent="GameDirector"]
+script = ExtResource("2_ww0k3")
+
+[node name="Background2" type="Sprite2D" parent="GameDirector/BackgroundController"]
+z_index = -2
+position = Vector2(-659, 65)
+scale = Vector2(0.41, 0.41)
+texture = ExtResource("3_m46g4")
+
+[node name="Background3" type="Sprite2D" parent="GameDirector/BackgroundController"]
+z_index = -2
+position = Vector2(907, 65)
+scale = Vector2(0.41, 0.41)
+texture = ExtResource("3_m46g4")
+
+[node name="Background" type="Sprite2D" parent="GameDirector/BackgroundController"]
+z_index = -2
+position = Vector2(-2210, 65)
+scale = Vector2(0.400926, 0.400926)
+texture = ExtResource("3_m46g4")
+
+[node name="StartStopTimer" type="Timer" parent="GameDirector/BackgroundController"]
+one_shot = true
+
+[node name="Bus" type="Sprite2D" parent="GameDirector"]
+texture = ExtResource("1_ixtao")
+script = ExtResource("6_0nbmv")
+
+[node name="Label" type="Label" parent="GameDirector/Bus"]
+z_index = 12
+anchors_preset = -1
+offset_left = -1001.0
+offset_top = -211.0
+offset_right = -651.0
+offset_bottom = -160.0
+text = "test
+"
+label_settings = SubResource("LabelSettings_essdf")
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="GameDirector/Bus"]
+z_index = 12
+anchors_preset = -1
+offset_left = 561.0
+offset_top = -237.0
+offset_right = 911.0
+offset_bottom = -188.0
+text = "test
+"
+label_settings = SubResource("LabelSettings_essdf")
+horizontal_alignment = 1
+
+[connection signal="timeout" from="GameDirector/Timer" to="GameDirector" method="_on_timer_timeout"]
