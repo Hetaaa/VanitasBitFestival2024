@@ -16,17 +16,17 @@ size = Vector2(826.812, 860.279)
 [node name="Bar" type="Node2D"]
 
 [node name="Tlo" type="Sprite2D" parent="."]
-position = Vector2(1578, -91)
+position = Vector2(905, -504)
 scale = Vector2(2.5, 2.5)
 texture = ExtResource("6_3sfp8")
 
 [node name="Przystanek-os-m" type="Sprite2D" parent="."]
-position = Vector2(1127, 443)
+position = Vector2(465, -31.9999)
 scale = Vector2(0.638255, 0.704)
 texture = ExtResource("1_pq6ix")
 
 [node name="sklep" type="Sprite2D" parent="." groups=["interact"]]
-position = Vector2(2269, 373)
+position = Vector2(1364, 90)
 texture = ExtResource("2_kvybl")
 script = ExtResource("3_w2p56")
 
@@ -39,7 +39,7 @@ position = Vector2(-73, 55)
 shape = SubResource("CircleShape2D_4b2wl")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(1339, 759)
+position = Vector2(1028, 369)
 scale = Vector2(3.73067, 0.0984204)
 texture = ExtResource("4_blxpl")
 
@@ -53,4 +53,4 @@ position = Vector2(-2.91602, 5.73535)
 shape = SubResource("RectangleShape2D_sbaur")
 
 [node name="Player" parent="." instance=ExtResource("5_puuhd")]
-position = Vector2(1210, 412)
+position = Vector2(610, 180)

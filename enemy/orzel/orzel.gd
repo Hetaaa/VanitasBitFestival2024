@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 @export var player :CharacterBody2D;
-@export var SPEED = 10.0
+@export var SPEED = 5.0
 var health = 20
 var hold = false
 var knockback_force = 500
@@ -37,4 +37,4 @@ func attacking():
 	for overlap in hit_area.get_overlapping_areas():
 		
 		if overlap.is_in_group("hit") and overlap.get_parent().get_parent() != self and overlap.get_parent().get_parent().is_in_group("player"):
-			overlap.get_parent().get_parent().get_hit(20, global_position)
+			overlap.get_parent().get_parent().get_hit(5, global_position)

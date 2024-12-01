@@ -9,5 +9,8 @@ Zbigniew: Tu nawet nie kradzione, nie jak u tego Mirka złodzieja.
 Zbigniew: Niemiec neie płakał jak sprzedał. Umarł z rozpaczy.
 => komis
 ~ komis
-Zbigniew: Lambergambe tylko za 2600, taniej pan nie znajdziesz.
+Zbigniew: Lambergambe tylko za 500, taniej pan nie znajdziesz.
+- Kup auto(500zł)[if get_money >=500]
+	Zbigniew: Wiem że pan się nie zawiedzie
+- Wyjdź
 => END
