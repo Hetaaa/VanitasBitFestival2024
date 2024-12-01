@@ -106,22 +106,26 @@ func get_thing(what):
 	change_kasa.emit(kasa)
 	if what == "hotdog":
 		if health <=70:
+			kasa-=10
 			health +=30
 			show_text("+20 HP")
 			change_health.emit(health)
 		else:
 			health = 100
-		
+			
 	elif what == "piwo":
 		strength += 5
+		kasa -= 12
 		show_text("+5 ATAK")
 	elif what == "lombard":
 		wymien_fanty()
+	change_kasa.emit(kasa)
 func wymien_fanty():
 	var reward = fanty * randf_range(0.9, 1.4)
 	fanty = 0
 	reward = int(reward)
-	
+	kasa += reward
+	show_text("+"+str(reward)+"zł")
 
 func _on_hitbox_body_entered(body: Node2D) -> void:
 	if body.is_in_group("Fant"):
