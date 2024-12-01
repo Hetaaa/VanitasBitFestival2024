@@ -4,13 +4,19 @@ extends CharacterBody2D
 const SPEED = 300.0
 
 var fanty = 0
-
+var health = 100
 var offset_treshold =60;
 var current_offset = 0;
 var move_hold : bool = false
 @onready var hit_area = $Contents/hit_area
 @onready var contents = $Contents
+@onready var text = $Text
 var direction
+var no_move : bool = false
+var kasa = 0
+var strength = 20
+signal change_health
+signal change_kasa
 
 func _ready() -> void:
 	money.player = self
@@ -44,7 +50,8 @@ func _physics_process(delta: float) -> void:
 			current_offset -= 1
 	if  Input.is_action_just_pressed("attack"):
 		attack()
-	move_and_slide()
+	if !no_move:
+		move_and_slide()
 
 func attack():
 
@@ -52,13 +59,16 @@ func attack():
 		if overlap.is_in_group("hit") and overlap.get_parent().get_parent() != self:
 			overlap.get_parent().get_parent().get_hit(20, global_position)
 		elif overlap.is_in_group("interact"):
-			print('dawdaw')
+			move_hold = false
 			overlap.get_parent().interact()
-
+			no_move = true
+			await DialogueManager.dialogue_ended
+			no_move = false
 	
 	
 func get_hit(dmg, dir):
-	
+		health-=dmg
+		change_health.emit(health)
 		if global_position.x - dir.x >= 0:
 			direction = 1.0
 		else:
@@ -67,14 +77,38 @@ func get_hit(dmg, dir):
 			var target_velocity_x = direction * 4000
 			velocity.x = lerp(velocity.x, target_velocity_x, 1.0)
 			velocity.x = clamp(velocity.x, -SPEED, SPEED)
+		
 
-
-func get_thing():
-	print("I got a thing!")
-
+func get_thing(what):
+	change_kasa.emit(kasa)
+	if what == "hotdog":
+		if health <=70:
+			health +=30
+			show_text("+20 HP")
+			change_health.emit(health)
+		else:
+			health = 100
+		
+	elif what == "piwo":
+		strength += 5
+		show_text("+5 ATAK")
+	elif what == "lombard":
+		wymien_fanty()
+func wymien_fanty():
+	var reward = fanty * randf_range(0.9, 1.4)
+	fanty = 0
+	reward = int(reward)
+	
 
 func _on_hitbox_body_entered(body: Node2D) -> void:
 	if body.is_in_group("Fant"):
 		if body.canDie == 1:
 			body.queue_free()
+			show_text("+1 Fant")
 			fanty += 1
+
+func show_text(tekst):
+	text.text = tekst
+	text.show()
+	await get_tree().create_timer(0.5).timeout
+	text.hide()
