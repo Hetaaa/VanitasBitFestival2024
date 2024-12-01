@@ -32,13 +32,13 @@ func _process(delta: float) -> void:
 	if state == 3 and Input.is_action_pressed("spacja") and canChangeScene == 1:
 		match Global.przystanek:
 			1:
-				get_tree().change_scene_to_file("res://sklep/komis/komis.tscn")
+				get_parent().get_parent().change_world(load("res://sklep/komis/komis.tscn"))
 			3:
-				get_tree().change_scene_to_file("res://sklep/zabka/zabka.tscn")
+				get_parent().get_parent().change_world(load("res://sklep/zabka/zabka.tscn"))
 			5:
-				get_tree().change_scene_to_file("res://sklep/bar/bar.tscn")
+				get_parent().get_parent().change_world(load("res://sklep/bar/bar.tscn"))
 			7:		
-				get_tree().change_scene_to_file("res://sklep/lombard/lombard.tscn")
+				get_parent().get_parent().change_world(load("res://sklep/lombard/lombard.tscn"))
 	
 func incrementStop():
 	Global.przystanek = Global.przystanek + 1

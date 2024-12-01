@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://cic6n5ku1iutp"]
+[gd_scene load_steps=19 format=3 uid="uid://cic6n5ku1iutp"]
 
 [ext_resource type="Texture2D" uid="uid://e6err4wskmyy" path="res://sklep/zabka/przystanek-removebg-preview.png" id="1_avcsb"]
 [ext_resource type="Texture2D" uid="uid://sngkrto41vqk" path="res://sklep/zabka/ropucha-removebg-preview.png" id="2_mnlc5"]
@@ -8,6 +8,10 @@
 [ext_resource type="Texture2D" uid="uid://cwtx2ctif57wr" path="res://busStage/assets/tlo.png" id="6_kjeib"]
 [ext_resource type="Script" path="res://sklep/bar/przystanek.gd" id="7_gvk8g"]
 [ext_resource type="Texture2D" uid="uid://brnw1j7cptbnc" path="res://busStage/spacja-removebg-preview.png" id="8_ji8qj"]
+[ext_resource type="Script" path="res://ui.gd" id="9_kjems"]
+[ext_resource type="Texture2D" uid="uid://tacgp6331bou" path="res://ui/healt.png" id="10_t6nqn"]
+[ext_resource type="Theme" uid="uid://b73y4jutnwuue" path="res://themes/theme.tres" id="11_xau5h"]
+[ext_resource type="Texture2D" uid="uid://06ca2vlxxvk0" path="res://cooltext470956255209280-ezgif.com-gif-to-jpg-converter.png" id="12_4q7up"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ixvjx"]
 radius = 76.0726
@@ -21,7 +25,20 @@ size = Vector2(125.409, 11158.7)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dphc0"]
 size = Vector2(562.625, 380)
 
-[node name="world2" type="Node2D"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_o18d7"]
+font_size = 96
+font_color = Color(0.645551, 2.56296e-06, 4.81307e-07, 1)
+outline_size = 15
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_akwrl"]
+font_size = 40
+outline_size = 20
+outline_color = Color(0, 0, 0, 1)
+
+[node name="world" type="Node2D"]
+
 position = Vector2(5, -300)
 
 [node name="Przystanek-os-m" type="Sprite2D" parent="."]
@@ -46,12 +63,15 @@ position = Vector2(-24.2927, 17.2901)
 shape = SubResource("CircleShape2D_ixvjx")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+
 visible = false
 position = Vector2(644, 733)
+
 scale = Vector2(2.13647, 0.0984204)
 texture = ExtResource("3_8f36o")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Sprite2D"]
+visible = false
 collision_layer = 3
 collision_mask = 3
 
@@ -95,6 +115,109 @@ shape = SubResource("RectangleShape2D_dphc0")
 position = Vector2(35.8012, -101.28)
 scale = Vector2(0.559903, 0.559903)
 texture = ExtResource("8_ji8qj")
+
+[node name="UI" type="CanvasLayer" parent="."]
+layer = 3
+script = ExtResource("9_kjems")
+
+[node name="Screen" type="Control" parent="UI"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/Screen"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="UI/Screen/VBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="UI/Screen/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(450, 100)
+layout_mode = 2
+texture = ExtResource("10_t6nqn")
+expand_mode = 2
+
+[node name="ProgressBar" type="ProgressBar" parent="UI/Screen/VBoxContainer/HBoxContainer/TextureRect"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -355.0
+offset_top = -26.0
+offset_right = -55.0
+offset_bottom = 22.0
+grow_horizontal = 0
+grow_vertical = 2
+theme = ExtResource("11_xau5h")
+value = 100.0
+show_percentage = false
+
+[node name="Label" type="Label" parent="UI/Screen/VBoxContainer/HBoxContainer/TextureRect"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 24.0
+offset_top = -70.0
+offset_right = 104.0
+offset_bottom = 62.0
+grow_vertical = 2
+text = "+"
+label_settings = SubResource("LabelSettings_o18d7")
+
+[node name="MarginContainer" type="MarginContainer" parent="UI/Screen/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="TextureRect2" type="TextureRect" parent="UI/Screen/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(200, 100)
+layout_mode = 2
+texture = ExtResource("10_t6nqn")
+expand_mode = 2
+flip_h = true
+
+[node name="Label" type="Label" parent="UI/Screen/VBoxContainer/HBoxContainer/TextureRect2"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "100zł"
+label_settings = SubResource("LabelSettings_akwrl")
+
+[node name="Die" type="TextureRect" parent="UI/Screen"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -496.5
+offset_top = -110.5
+offset_right = 496.5
+offset_bottom = 110.5
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("12_4q7up")
 
 [connection signal="body_entered" from="Przystanek-os-m2/przystanekarea" to="Przystanek-os-m2" method="_on_przystanekarea_body_entered"]
 [connection signal="body_exited" from="Przystanek-os-m2/przystanekarea" to="Przystanek-os-m2" method="_on_przystanekarea_body_exited"]
