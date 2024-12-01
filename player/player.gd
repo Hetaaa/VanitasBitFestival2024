@@ -71,6 +71,9 @@ func attack():
 	
 func get_hit(dmg, dir):
 		health-=dmg
+		if health <= 0:
+			die()
+			return
 		change_health.emit(health)
 		if global_position.x - dir.x >= 0:
 			direction = 1.0
@@ -122,4 +125,3 @@ func show_text(tekst):
 func die():
 	player_dead.emit()
 	move_hold = true
-
