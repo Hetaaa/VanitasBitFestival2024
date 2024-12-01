@@ -9,9 +9,6 @@
 [ext_resource type="PackedScene" uid="uid://b83nmbgv7a6xv" path="res://player/player.tscn" id="5_hdb08"]
 [ext_resource type="Texture2D" uid="uid://cwtx2ctif57wr" path="res://busStage/assets/tlo.png" id="6_efjdw"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_tfeh0"]
-size = Vector2(562.625, 380)
-
 [sub_resource type="CircleShape2D" id="CircleShape2D_ixvjx"]
 radius = 76.0726
 
@@ -21,27 +18,11 @@ size = Vector2(1643.83, 860.279)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2sjd8"]
 size = Vector2(125.409, 11158.7)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wy3my"]
+size = Vector2(164.28, 436.742)
+
 [node name="world" type="Node2D"]
 position = Vector2(9, -300)
-
-[node name="Przystanek-os-m" type="Sprite2D" parent="."]
-position = Vector2(1236.11, 334.504)
-scale = Vector2(2.20356, 1.80198)
-texture = ExtResource("1_h64ql")
-script = ExtResource("2_311we")
-
-[node name="przystanekarea" type="Area2D" parent="Przystanek-os-m"]
-position = Vector2(680.667, 167.314)
-scale = Vector2(0.453811, 0.554945)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Przystanek-os-m/przystanekarea"]
-position = Vector2(-1446, -243)
-shape = SubResource("RectangleShape2D_tfeh0")
-
-[node name="space1" type="Sprite2D" parent="Przystanek-os-m"]
-position = Vector2(35.8012, -101.28)
-scale = Vector2(0.559903, 0.559903)
-texture = ExtResource("3_54kwb")
 
 [node name="sklep" type="Sprite2D" parent="." groups=["interact"]]
 position = Vector2(178, 187)
@@ -60,8 +41,7 @@ position = Vector2(-24.2927, 17.2901)
 shape = SubResource("CircleShape2D_ixvjx")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-visible = false
-position = Vector2(678.5, 656.5)
+position = Vector2(673, 789)
 scale = Vector2(2.13647, 0.0984204)
 texture = ExtResource("4_si1kp")
 
@@ -90,5 +70,23 @@ position = Vector2(-1063, 65)
 scale = Vector2(1.73333, 1.73333)
 texture = ExtResource("6_efjdw")
 
-[connection signal="body_entered" from="Przystanek-os-m/przystanekarea" to="Przystanek-os-m" method="_on_przystanekarea_body_entered"]
-[connection signal="body_exited" from="Przystanek-os-m/przystanekarea" to="Przystanek-os-m" method="_on_przystanekarea_body_exited"]
+[node name="Przystanek-os-m2" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(1236.11, 334.504)
+scale = Vector2(2.20356, 1.80198)
+texture = ExtResource("1_h64ql")
+script = ExtResource("2_311we")
+
+[node name="space1" type="Sprite2D" parent="Przystanek-os-m2"]
+position = Vector2(35.8012, -101.28)
+scale = Vector2(0.559903, 0.559903)
+texture = ExtResource("3_54kwb")
+
+[node name="Area2D" type="Area2D" parent="Przystanek-os-m2"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Przystanek-os-m2/Area2D"]
+position = Vector2(40.793, 157.047)
+shape = SubResource("RectangleShape2D_wy3my")
+
+[connection signal="body_entered" from="Przystanek-os-m2/Area2D" to="Przystanek-os-m2" method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Przystanek-os-m2/Area2D" to="Przystanek-os-m2" method="_on_area_2d_body_exited"]
