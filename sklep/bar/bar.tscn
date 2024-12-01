@@ -1,0 +1,56 @@
+[gd_scene load_steps=9 format=3 uid="uid://4fg2vm0kluui"]
+
+[ext_resource type="Texture2D" uid="uid://f1v34ktn8mfa" path="res://sklep/zabka/przystanek-os-m.jpg" id="1_pq6ix"]
+[ext_resource type="Texture2D" uid="uid://b3k5fl0lqeaa8" path="res://sklep/bar/Bar-Teatralny-20191029-131057.jpg" id="2_kvybl"]
+[ext_resource type="Script" path="res://sklep/bar/bar.gd" id="3_w2p56"]
+[ext_resource type="Texture2D" uid="uid://qnt5e11fa1ca" path="res://rl1sy731pgk91.webp" id="4_blxpl"]
+[ext_resource type="PackedScene" uid="uid://b83nmbgv7a6xv" path="res://player/player.tscn" id="5_puuhd"]
+[ext_resource type="Texture2D" uid="uid://cwtx2ctif57wr" path="res://busStage/assets/tlo.png" id="6_3sfp8"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_4b2wl"]
+radius = 117.835
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sbaur"]
+size = Vector2(826.812, 860.279)
+
+[node name="Bar" type="Node2D"]
+
+[node name="Tlo" type="Sprite2D" parent="."]
+position = Vector2(905, -504)
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("6_3sfp8")
+
+[node name="Przystanek-os-m" type="Sprite2D" parent="."]
+position = Vector2(465, -31.9999)
+scale = Vector2(0.638255, 0.704)
+texture = ExtResource("1_pq6ix")
+
+[node name="sklep" type="Sprite2D" parent="." groups=["interact"]]
+position = Vector2(1364, 90)
+texture = ExtResource("2_kvybl")
+script = ExtResource("3_w2p56")
+
+[node name="shop_area" type="Area2D" parent="sklep" groups=["interact"]]
+collision_layer = 512
+collision_mask = 512
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="sklep/shop_area"]
+position = Vector2(-73, 55)
+shape = SubResource("CircleShape2D_4b2wl")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(1028, 369)
+scale = Vector2(3.73067, 0.0984204)
+texture = ExtResource("4_blxpl")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Sprite2D"]
+collision_layer = 3
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D/StaticBody2D"]
+visible = false
+position = Vector2(-2.91602, 5.73535)
+shape = SubResource("RectangleShape2D_sbaur")
+
+[node name="Player" parent="." instance=ExtResource("5_puuhd")]
+position = Vector2(610, 180)

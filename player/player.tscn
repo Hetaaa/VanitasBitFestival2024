@@ -1,4 +1,5 @@
-[gd_scene load_steps=58 format=3 uid="uid://b83nmbgv7a6xv"]
+[gd_scene load_steps=11 format=3 uid="uid://b83nmbgv7a6xv"]
+
 
 [ext_resource type="Script" path="res://player/player.gd" id="1_r4ocm"]
 [ext_resource type="Texture2D" uid="uid://dak8m5tut3pn8" path="res://player/Spritesheets/MainCharacterSpriteSheets/hit/image0000.png" id="2_myodc"]
@@ -232,19 +233,23 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fui8p"]
-size = Vector2(209, 207.5)
+size = Vector2(209, 607.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_se461"]
-size = Vector2(209, 124)
+size = Vector2(209, 201)
 
-[node name="Player" type="CharacterBody2D"]
+[sub_resource type="LabelSettings" id="LabelSettings_m1gcf"]
+font_size = 36
+font_color = Color(0.987161, 0.880814, 0.757724, 1)
+outline_size = 20
+outline_color = Color(0, 0, 0, 1)
+
+[node name="Player" type="CharacterBody2D" groups=["player"]]
 script = ExtResource("1_r4ocm")
 
 [node name="col" type="CollisionShape2D" parent="." groups=["hit"]]
 position = Vector2(0, 111.75)
 shape = SubResource("RectangleShape2D_lnlw8")
-
-[node name="Camera2D" type="Camera2D" parent="."]
 
 [node name="Contents" type="Node2D" parent="."]
 
@@ -255,12 +260,14 @@ animation = &"hit"
 frame = 19
 frame_progress = 1.0
 
-[node name="hitbox" type="Area2D" parent="Contents" groups=["hit"]]
-collision_layer = 512
-collision_mask = 512
+
+[node name="hitbox" type="Area2D" parent="Contents" groups=["Fant", "hit"]]
+position = Vector2(1, 0)
+collision_layer = 516
+collision_mask = 516
 
 [node name="hit_col" type="CollisionShape2D" parent="Contents/hitbox"]
-position = Vector2(1, 1.25)
+position = Vector2(5, 4.25)
 shape = SubResource("RectangleShape2D_fui8p")
 
 [node name="hit_area" type="Area2D" parent="Contents"]
@@ -268,5 +275,24 @@ collision_layer = 512
 collision_mask = 512
 
 [node name="hit_col" type="CollisionShape2D" parent="Contents/hit_area"]
-position = Vector2(153, -36)
+position = Vector2(153, -74.5)
 shape = SubResource("RectangleShape2D_se461")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(0.8, 0.8)
+limit_left = -1475
+limit_top = -450
+limit_right = 1450
+limit_bottom = 430
+limit_smoothed = true
+
+[node name="Text" type="Label" parent="."]
+visible = false
+offset_left = -60.0
+offset_top = -379.0
+offset_right = 61.0
+offset_bottom = -329.0
+text = "+1 fant"
+label_settings = SubResource("LabelSettings_m1gcf")
+
+[connection signal="body_entered" from="Contents/hitbox" to="." method="_on_hitbox_body_entered"]

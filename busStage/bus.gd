@@ -10,7 +10,6 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
-
 func setBusStop(stopNumber):
 	await get_tree().create_timer(1).timeout
 	var labeltext = "Nast. Przystanek"

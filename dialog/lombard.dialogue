@@ -1,0 +1,19 @@
+~ intro1
+Mirek: Najlepszy klient to taki który wraca nawet jak go wyciulasz
+=> lombard
+
+~ intro2
+Mirek: Mówią że skarbówka mnie dojedzie, ale złego licho nie bierze.
+=> lombard
+
+~ intro3
+Mirek: Kradzione, nie kradzione, jaką to robi różnice mincerzowi?
+=> lombard
+
+~ lombard
+Mirek: Pokaż mi swoje towary
+- Daj "zdobycze"
+	do give_player(0, "lombard")
+	Mirek: Wybornie, wyborne.
+- Wyjdź
+=> END

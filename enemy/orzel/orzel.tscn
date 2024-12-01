@@ -15,10 +15,10 @@ size = Vector2(246, 41)
 size = Vector2(260, 234)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qlllm"]
-size = Vector2(209, 151.25)
+size = Vector2(137.5, 151.25)
 
 [node name="enemy" type="CharacterBody2D"]
-collision_layer = 2
+collision_layer = 0
 collision_mask = 2
 script = ExtResource("1_dtxag")
 
@@ -45,7 +45,7 @@ collision_layer = 512
 collision_mask = 512
 
 [node name="hit_col" type="CollisionShape2D" parent="Contents/hit_area"]
-position = Vector2(159, -21)
+position = Vector2(123.25, -21)
 shape = SubResource("RectangleShape2D_qlllm")
 
 [node name="State_Machine" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
