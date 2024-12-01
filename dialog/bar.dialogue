@@ -11,7 +11,7 @@ Barman: Kiedyś mój wujek pichcił w piwnicy takie rzeczy... Malinówka, pieprz
 ~ shop
 
 Barman: Co podać majster?
-- Piwko 12% (12zł (aaaa infalcja))
-	do give_player()
+- Piwko 12% (12zł (aaaa infalcja)) [if get_money()>=12]
+	do give_player("piwo")
 - Wyjdź
 => END

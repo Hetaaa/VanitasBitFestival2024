@@ -22,6 +22,6 @@ func spawn(stacja, amount):
 		
 			get_parent().get_parent().add_child(enemy)
 			enemy.global_position = self.global_position
-		await get_tree().create_timer(0.2).timeout
+		await get_tree().create_timer(0.8).timeout
 	
 	
