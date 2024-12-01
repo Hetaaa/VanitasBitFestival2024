@@ -31,50 +31,58 @@ func _physics_process(delta: float) -> void:
 	
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
-	direction = Input.get_axis("left", "right")
-	if direction:
-		var target_velocity = direction * SPEED
-		velocity.x = lerp(velocity.x, target_velocity, 0.2)  # 0.1 to współczynnik "gładkości"
-		velocity.x = clamp(velocity.x, -SPEED, SPEED)
 
-		if contents.scale.x !=direction:
-			contents.scale.x = direction
-	else:
-		velocity.x = lerp(velocity.x, 0.0, 0.2)
-	
-	if Input.is_action_pressed("up"):
-		if current_offset < offset_treshold:
-			col.global_position.y += 1
-			current_offset +=1
-	elif Input.is_action_pressed("down"):
-		if current_offset > 0:
-			
-			col.global_position.y -= 1
-			current_offset -= 1
-	if  Input.is_action_just_pressed("attack"):
-		attack()
-	if !no_move:
-		move_and_slide()
+	if !move_hold:
+		direction = Input.get_axis("left", "right")
+		if direction:
+			var target_velocity = direction * SPEED
+			velocity.x = lerp(velocity.x, target_velocity, 0.2)  # 0.1 to współczynnik "gładkości"
+			velocity.x = clamp(velocity.x, -SPEED, SPEED)
+
+			if contents.scale.x !=direction:
+				contents.scale.x = direction
+		else:
+			velocity.x = lerp(velocity.x, 0.0, 0.2)
+		
+		if Input.is_action_pressed("up"):
+			if current_offset < offset_treshold:
+				col.global_position.y += 1
+				current_offset +=1
+		elif Input.is_action_pressed("down"):
+			if current_offset > 0:
+				
+				col.global_position.y -= 1
+				current_offset -= 1
+		if  Input.is_action_just_pressed("attack"):
+			attack()
+		if !no_move:
+			move_and_slide()
+
 
 func attack():
-
+  contents.get_child(0).play("hit");
 	for overlap in hit_area.get_overlapping_areas():
 		if overlap.is_in_group("hit") and overlap.get_parent().get_parent() != self:
 			overlap.get_parent().get_parent().get_hit(20, global_position)
+
+	  
+			
 		elif overlap.is_in_group("interact"):
 			move_hold = false
 			overlap.get_parent().interact()
 			no_move = true
 			await DialogueManager.dialogue_ended
 			no_move = false
+
 	
 	
 func get_hit(dmg, dir):
 		health-=dmg
+		change_health.emit(health)
 		if health <= 0:
 			die()
 			return
-		change_health.emit(health)
+		
 		if global_position.x - dir.x >= 0:
 			direction = 1.0
 		else:
