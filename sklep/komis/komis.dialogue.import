@@ -1,0 +1,15 @@
+[remap]
+
+importer="dialogue_manager_compiler_13"
+type="Resource"
+uid="uid://1jq1tjncjney"
+path="res://.godot/imported/komis.dialogue-8544adf6f3322e8fb12df7e56cb47168.tres"
+
+[deps]
+
+source_file="res://sklep/komis/komis.dialogue"
+dest_files=["res://.godot/imported/komis.dialogue-8544adf6f3322e8fb12df7e56cb47168.tres"]
+
+[params]
+
+defaults=true
