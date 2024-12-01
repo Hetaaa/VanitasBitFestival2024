@@ -12,6 +12,8 @@ func Enter():
 	myowner.attacking()
 	await get_tree().create_timer(0.6).timeout
 	myowner.SPEED = speed_mock
+	myowner.change_animation("walking")
+	
 	if state_machine._get_state_name() != "Dead":
 		Transitioned.emit("Attack")
 func PhysicsUpdate(delta):

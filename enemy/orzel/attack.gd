@@ -6,7 +6,7 @@ var similiar_offset : bool = false
 # Called when the node enters the scene tree for the first time.
 func Enter():
 	myowner = state_machine.get_parent()
-	myowner.change_animation("walk")
+	myowner.change_animation("walking")
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func PhysicsUpdate(delta):

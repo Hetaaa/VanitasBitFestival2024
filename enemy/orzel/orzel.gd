@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 @export var player :CharacterBody2D;
-@export var SPEED = 5.0
+@export var SPEED = 3.0
 var health = 60
 var hold = false
 var knockback_force = 500
@@ -14,6 +14,8 @@ var offset_treshold =60;
 var current_offset = 0;
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	if animated_sprite:
+		animated_sprite.play("walking")
 	pass # Replace with function body.
 
 

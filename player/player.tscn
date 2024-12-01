@@ -235,7 +235,7 @@ animations = [{
 size = Vector2(209, 814.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_se461"]
-size = Vector2(316.5, 263)
+size = Vector2(167.5, 263)
 
 [sub_resource type="LabelSettings" id="LabelSettings_m1gcf"]
 font_size = 36
@@ -271,7 +271,7 @@ collision_layer = 512
 collision_mask = 512
 
 [node name="hit_col" type="CollisionShape2D" parent="Contents/hit_area"]
-position = Vector2(206.75, -43.5)
+position = Vector2(132.25, -43.5)
 shape = SubResource("RectangleShape2D_se461")
 
 [node name="Camera2D" type="Camera2D" parent="."]
