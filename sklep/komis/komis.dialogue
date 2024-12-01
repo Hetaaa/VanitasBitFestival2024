@@ -11,6 +11,7 @@ Zbigniew: Niemiec neie płakał jak sprzedał. Umarł z rozpaczy.
 ~ komis
 Zbigniew: Lambergambe tylko za 500, taniej pan nie znajdziesz.
 - Kup auto(500zł) [if get_money() >=500]
+	do you_bought_car()
 	Zbigniew: Wiem że pan się nie zawiedzie
 - Wyjdź
 => END

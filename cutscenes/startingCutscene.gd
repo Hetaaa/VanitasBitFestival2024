@@ -28,7 +28,7 @@ func _ready() -> void:
 	_start_image_transition(frame4, null)
 	
 	# Change the current scene to a new scene
-	get_tree().change_scene_to_file("res://busStage/world.tscn")
+	get_tree().change_scene_to_file("res://main_window.tscn")
 
 	
 # Starts the image transition animation
