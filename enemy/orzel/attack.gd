@@ -6,7 +6,7 @@ var similiar_offset : bool = false
 # Called when the node enters the scene tree for the first time.
 func Enter():
 	myowner = state_machine.get_parent()
-
+	myowner.change_animation("walk")
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func PhysicsUpdate(delta):
@@ -26,7 +26,7 @@ func PhysicsUpdate(delta):
 			if direction == 0:
 				myowner.velocity.x = move_toward(myowner.velocity.x, 0, myowner.SPEED * delta)
 			
-	if myowner.global_position.distance_to(myowner.player.global_position) < 280.0 and similiar_offset :
+	if myowner.global_position.distance_to(myowner.player.global_position) < 160.0 and similiar_offset :
 		Transitioned.emit("Hit")
 
 
