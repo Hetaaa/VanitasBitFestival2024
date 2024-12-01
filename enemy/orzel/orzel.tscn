@@ -254,7 +254,7 @@ rotation = 3.14159
 scale = Vector2(-0.6, -0.6)
 sprite_frames = SubResource("SpriteFrames_ljxfg")
 animation = &"hit"
-frame_progress = 0.184851
+frame_progress = 0.0367967
 
 [node name="hitbox" type="Area2D" parent="Contents" groups=["hit"]]
 collision_layer = 512
