@@ -127,7 +127,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("22_1a86g")
 }],
-"loop": true,
+"loop": false,
 "name": &"hit",
 "speed": 60.0
 }, {
@@ -248,7 +248,7 @@ shape = SubResource("RectangleShape2D_o016g")
 rotation = 3.14159
 scale = Vector2(-0.6, -0.6)
 sprite_frames = SubResource("SpriteFrames_ljxfg")
-animation = &"walking"
+animation = &"hit"
 
 [node name="hitbox" type="Area2D" parent="Contents" groups=["hit"]]
 collision_layer = 512
