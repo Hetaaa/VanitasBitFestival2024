@@ -5,7 +5,7 @@
 [ext_resource type="Script" path="res://busStage/enemy_spawner.gd" id="3_5fa7t"]
 [ext_resource type="PackedScene" uid="uid://d1rbhalexqgng" path="res://enemy/orzel/orzel.tscn" id="3_ifilt"]
 [ext_resource type="Texture2D" uid="uid://cwtx2ctif57wr" path="res://busStage/assets/tlo.png" id="3_m46g4"]
-[ext_resource type="PackedScene" uid="uid://baxpy3610247s" path="res://enemy/orzel/orzelbiz.tscn" id="4_3ga68"]
+[ext_resource type="PackedScene" path="res://enemy/orzel/orzelbiz.tscn" id="4_3ga68"]
 [ext_resource type="Script" path="res://busStage/bus.gd" id="6_0nbmv"]
 [ext_resource type="Texture2D" uid="uid://dplbuy0b5m64i" path="res://sklep/bar/bar-removebg-preview.png" id="6_amaxf"]
 [ext_resource type="Texture2D" uid="uid://cywhf22gmrp6" path="res://busStage/assets/busFull.png" id="6_at4s5"]
