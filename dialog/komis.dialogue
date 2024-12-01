@@ -1,0 +1,15 @@
+~ intro1
+Sprzedawca: Nówka sztuka nie śmigana
+=> lombard
+
+~ intro2
+Sprzedawca: Bezwypadkowa, licznik nie kręcony
+=> lombard
+
+~ lombard
+Sprzedawca: To jak bierze pan?
+- Kup auto(500zł) [if get_money() >=500]
+	do give_player(0, "auto")
+	Sprzedawca: Wybornie, wyborne.
+- Wyjdź
+=> END

@@ -148,7 +148,7 @@ show_inventory={
 
 [internationalization]
 
-locale/translations_pot_files=PackedStringArray("res://dialog/Dialogi.dialogue", "res://dialog/sklep.dialogue", "res://dialog/bar.dialogue", "res://dialog/lombard.dialogue", "res://sklep/komis/komis.dialogue")
+locale/translations_pot_files=PackedStringArray("res://dialog/Dialogi.dialogue", "res://dialog/sklep.dialogue", "res://dialog/bar.dialogue", "res://dialog/lombard.dialogue", "res://sklep/komis/komis.dialogue", "res://dialog/komis.dialogue")
 
 [layer_names]
 

@@ -114,6 +114,8 @@ func get_thing(what):
 		show_text("+5 ATAK")
 	elif what == "lombard":
 		wymien_fanty()
+	elif what == "auto":
+		get_tree().change_scene_to_file("res://koniec.tscn")
 	change_kasa.emit(Global.kasa)
 func wymien_fanty():
 	var reward = Global.fanty * randf_range(0.9, 1.4)

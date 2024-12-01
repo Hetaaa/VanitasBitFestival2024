@@ -11,7 +11,7 @@
 [ext_resource type="AudioStream" uid="uid://ca2t36mpo5gcr" path="res://Midnight Daydreams.mp3" id="9_b4h0m"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ixvjx"]
-radius = 76.0726
+radius = 108.993
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vhvtn"]
 size = Vector2(1643.83, 860.279)
@@ -26,8 +26,8 @@ size = Vector2(164.28, 436.742)
 position = Vector2(9, -300)
 
 [node name="sklep" type="Sprite2D" parent="." groups=["interact"]]
-position = Vector2(265, 311)
-scale = Vector2(3.492, 3.04315)
+position = Vector2(239, 392)
+scale = Vector2(2.524, 2.19957)
 texture = ExtResource("2_6vgoy")
 script = ExtResource("3_x3okv")
 
@@ -41,6 +41,7 @@ position = Vector2(-24.2927, 17.2901)
 shape = SubResource("CircleShape2D_ixvjx")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+visible = false
 position = Vector2(687, 753)
 scale = Vector2(2.13647, 0.0984204)
 texture = ExtResource("4_cmnay")
