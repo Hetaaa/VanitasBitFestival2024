@@ -1,16 +1,14 @@
-[gd_scene load_steps=18 format=3 uid="uid://dlajimkc33lpr"]
+[gd_scene load_steps=19 format=3 uid="uid://dlajimkc33lpr"]
 
 [ext_resource type="Script" path="res://busStage/background_controller.gd" id="2_ww0k3"]
 [ext_resource type="Script" path="res://busStage/game_director.gd" id="2_xunmq"]
 [ext_resource type="Script" path="res://busStage/enemy_spawner.gd" id="3_5fa7t"]
 [ext_resource type="PackedScene" uid="uid://d1rbhalexqgng" path="res://enemy/orzel/orzel.tscn" id="3_ifilt"]
 [ext_resource type="Texture2D" uid="uid://cwtx2ctif57wr" path="res://busStage/assets/tlo.png" id="3_m46g4"]
+[ext_resource type="PackedScene" path="res://enemy/orzel/orzelbiz.tscn" id="4_3ga68"]
 [ext_resource type="Script" path="res://busStage/bus.gd" id="6_0nbmv"]
-
-[ext_resource type="Texture2D" uid="uid://cywhf22gmrp6" path="res://busStage/assets/busFull.png" id="6_at4s5"]
-
 [ext_resource type="Texture2D" uid="uid://dplbuy0b5m64i" path="res://sklep/bar/bar-removebg-preview.png" id="6_amaxf"]
-
+[ext_resource type="Texture2D" uid="uid://cywhf22gmrp6" path="res://busStage/assets/busFull.png" id="6_at4s5"]
 [ext_resource type="PackedScene" uid="uid://b83nmbgv7a6xv" path="res://player/player.tscn" id="7_dy64q"]
 [ext_resource type="Texture2D" uid="uid://sngkrto41vqk" path="res://sklep/zabka/ropucha-removebg-preview.png" id="7_gioeg"]
 [ext_resource type="Texture2D" uid="uid://doa8qnbpa1jr6" path="res://sklep/lombard/lombard-removebg-preview.png" id="8_160ro"]
@@ -41,12 +39,14 @@ script = ExtResource("2_xunmq")
 position = Vector2(-785, 106)
 script = ExtResource("3_5fa7t")
 enemy_scene = ExtResource("3_ifilt")
+enemy_scene2 = ExtResource("4_3ga68")
 player = NodePath("../../Player")
 
 [node name="EnemySpawner2" type="Node2D" parent="GameDirector" node_paths=PackedStringArray("player")]
 position = Vector2(794, 110)
 script = ExtResource("3_5fa7t")
 enemy_scene = ExtResource("3_ifilt")
+enemy_scene2 = ExtResource("4_3ga68")
 player = NodePath("../../Player")
 
 [node name="Timer" type="Timer" parent="GameDirector"]

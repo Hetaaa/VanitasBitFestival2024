@@ -21,7 +21,7 @@ size = Vector2(125.409, 11158.7)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dphc0"]
 size = Vector2(562.625, 380)
 
-[node name="world" type="Node2D"]
+[node name="world2" type="Node2D"]
 position = Vector2(5, -300)
 
 [node name="Przystanek-os-m" type="Sprite2D" parent="."]
@@ -47,7 +47,7 @@ shape = SubResource("CircleShape2D_ixvjx")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 visible = false
-position = Vector2(678.5, 656.5)
+position = Vector2(644, 733)
 scale = Vector2(2.13647, 0.0984204)
 texture = ExtResource("3_8f36o")
 
