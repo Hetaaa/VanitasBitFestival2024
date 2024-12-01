@@ -10,7 +10,7 @@ func _on_player_change_health(health) -> void:
 
 
 func _on_player_change_kasa(kasa) -> void:
-	money_ui.text = str(kasa) + "złs"
+	money_ui.text = str(kasa) + "zł"
 
 
 func _on_player_player_dead() -> void:

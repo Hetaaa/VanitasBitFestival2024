@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://ccs40k4ua4jos"
+path="res://.godot/imported/Echoes in the Shadows.mp3-cd0aff1412223584e18d7cd5c42b5ef0.mp3str"
+
+[deps]
+
+source_file="res://player/Echoes in the Shadows.mp3"
+dest_files=["res://.godot/imported/Echoes in the Shadows.mp3-cd0aff1412223584e18d7cd5c42b5ef0.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

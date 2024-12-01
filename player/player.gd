@@ -23,9 +23,22 @@ signal change_kasa
 signal player_dead
 func _ready() -> void:
 	money.player = self
-	
-
+	health = Global.health 
+	kasa = Global.kasa
+	fanty = Global.fanty
+	strength = Global.sila
+	change_health.emit()
+	change_kasa.emit()
 func _physics_process(delta: float) -> void:
+	Global.health = health
+	Global.kasa = kasa
+	Global.fanty = fanty
+	Global.sila = strength
+	health = Global.health 
+	kasa = Global.kasa
+	fanty = Global.fanty
+	strength = Global.sila
+	print (Global.health, Global.kasa, Global.fanty, Global.fanty)
 	# Add the gravity.
 	if not is_on_floor():
 		velocity += get_gravity() * delta
@@ -33,7 +46,7 @@ func _physics_process(delta: float) -> void:
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
 
-	if !move_hold:
+	if !no_move:
 		direction = Input.get_axis("left", "right")
 		if direction:
 			if !isattacking:
@@ -145,7 +158,7 @@ func show_text(tekst):
 
 func die():
 	player_dead.emit()
-	move_hold = true
+	no_move = true
 
 
 func _on_animated_sprite_2d_animation_finished() -> void:
