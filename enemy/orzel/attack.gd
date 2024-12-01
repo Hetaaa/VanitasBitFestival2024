@@ -26,7 +26,7 @@ func PhysicsUpdate(delta):
 			if direction == 0:
 				myowner.velocity.x = move_toward(myowner.velocity.x, 0, myowner.SPEED * delta)
 			
-	if myowner.global_position.distance_to(myowner.player.global_position) < 280.0 and similiar_offset :
+	if myowner.global_position.distance_to(myowner.player.global_position) < 160.0 and similiar_offset :
 		Transitioned.emit("Hit")
 
 
