@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://dlajimkc33lpr"]
+[gd_scene load_steps=18 format=3 uid="uid://dlajimkc33lpr"]
 
 [ext_resource type="Texture2D" uid="uid://bknt8om01avtm" path="res://busStage/assets/bus.png" id="1_ixtao"]
 [ext_resource type="Script" path="res://busStage/background_controller.gd" id="2_ww0k3"]
@@ -7,7 +7,12 @@
 [ext_resource type="PackedScene" uid="uid://d1rbhalexqgng" path="res://enemy/orzel/orzel.tscn" id="3_ifilt"]
 [ext_resource type="Texture2D" uid="uid://cwtx2ctif57wr" path="res://busStage/assets/tlo.png" id="3_m46g4"]
 [ext_resource type="Script" path="res://busStage/bus.gd" id="6_0nbmv"]
+[ext_resource type="Texture2D" uid="uid://dplbuy0b5m64i" path="res://sklep/bar/bar-removebg-preview.png" id="6_amaxf"]
 [ext_resource type="PackedScene" uid="uid://b83nmbgv7a6xv" path="res://player/player.tscn" id="7_dy64q"]
+[ext_resource type="Texture2D" uid="uid://sngkrto41vqk" path="res://sklep/zabka/ropucha-removebg-preview.png" id="7_gioeg"]
+[ext_resource type="Texture2D" uid="uid://doa8qnbpa1jr6" path="res://sklep/lombard/lombard-removebg-preview.png" id="8_160ro"]
+[ext_resource type="Texture2D" uid="uid://w7e52aku3att" path="res://sklep/komis/auto-removebg-preview.png" id="9_o7vt3"]
+[ext_resource type="Texture2D" uid="uid://brnw1j7cptbnc" path="res://busStage/spacja-removebg-preview.png" id="12_yfone"]
 
 [sub_resource type="SystemFont" id="SystemFont_uva26"]
 
@@ -49,19 +54,19 @@ autostart = true
 script = ExtResource("2_ww0k3")
 
 [node name="Background2" type="Sprite2D" parent="GameDirector/BackgroundController"]
-z_index = -2
+z_index = -3
 position = Vector2(-659, 65)
 scale = Vector2(0.41, 0.41)
 texture = ExtResource("3_m46g4")
 
 [node name="Background3" type="Sprite2D" parent="GameDirector/BackgroundController"]
-z_index = -2
+z_index = -3
 position = Vector2(907, 65)
 scale = Vector2(0.41, 0.41)
 texture = ExtResource("3_m46g4")
 
 [node name="Background" type="Sprite2D" parent="GameDirector/BackgroundController"]
-z_index = -2
+z_index = -3
 position = Vector2(-2210, 65)
 scale = Vector2(0.400926, 0.400926)
 texture = ExtResource("3_m46g4")
@@ -69,35 +74,65 @@ texture = ExtResource("3_m46g4")
 [node name="StartStopTimer" type="Timer" parent="GameDirector/BackgroundController"]
 one_shot = true
 
+[node name="Bar" type="Sprite2D" parent="GameDirector/BackgroundController"]
+z_index = -1
+position = Vector2(2090, 104)
+scale = Vector2(1.582, 1.582)
+texture = ExtResource("6_amaxf")
+
+[node name="Zabka" type="Sprite2D" parent="GameDirector/BackgroundController"]
+z_index = -2
+position = Vector2(2090, 104)
+scale = Vector2(1.582, 1.582)
+texture = ExtResource("7_gioeg")
+
+[node name="Lombard" type="Sprite2D" parent="GameDirector/BackgroundController"]
+z_index = -2
+position = Vector2(2090, 104)
+scale = Vector2(1.582, 1.582)
+texture = ExtResource("8_160ro")
+
+[node name="Auto" type="Sprite2D" parent="GameDirector/BackgroundController"]
+z_index = -2
+position = Vector2(2090, 104)
+scale = Vector2(1.582, 1.582)
+texture = ExtResource("9_o7vt3")
+
 [node name="Bus" type="Sprite2D" parent="GameDirector"]
 z_index = -1
 texture = ExtResource("1_ixtao")
 script = ExtResource("6_0nbmv")
 
 [node name="Label" type="Label" parent="GameDirector/Bus"]
-z_index = 12
+z_index = 1
 offset_left = -1001.0
 offset_top = -211.0
 offset_right = -651.0
 offset_bottom = -160.0
-text = "test
-"
 label_settings = SubResource("LabelSettings_essdf")
 horizontal_alignment = 1
 
 [node name="Label2" type="Label" parent="GameDirector/Bus"]
-z_index = 12
+z_index = 1
 offset_left = 561.0
 offset_top = -237.0
 offset_right = 911.0
 offset_bottom = -188.0
-text = "test
-"
 label_settings = SubResource("LabelSettings_essdf")
 horizontal_alignment = 1
 
+[node name="space1" type="Sprite2D" parent="GameDirector"]
+position = Vector2(-790, -71)
+scale = Vector2(0.832, 0.832)
+texture = ExtResource("12_yfone")
+
+[node name="space2" type="Sprite2D" parent="GameDirector"]
+position = Vector2(778, -107)
+scale = Vector2(0.678, 0.678)
+texture = ExtResource("12_yfone")
+
 [node name="Player" parent="." instance=ExtResource("7_dy64q")]
-position = Vector2(-804, 106)
+position = Vector2(-820, 256)
 
 [node name="Map" type="Node2D" parent="."]
 position = Vector2(-1, -26)
