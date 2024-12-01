@@ -146,6 +146,8 @@ func show_text(tekst):
 func die():
 	player_dead.emit()
 	move_hold = true
+	contents.rotation = -PI/2;
+	contents.position.y = 150;
 
 
 func _on_animated_sprite_2d_animation_finished() -> void:

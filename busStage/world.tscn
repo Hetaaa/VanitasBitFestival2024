@@ -1,12 +1,12 @@
 [gd_scene load_steps=13 format=3 uid="uid://dlajimkc33lpr"]
 
-[ext_resource type="Texture2D" uid="uid://bknt8om01avtm" path="res://busStage/assets/bus.png" id="1_ixtao"]
 [ext_resource type="Script" path="res://busStage/background_controller.gd" id="2_ww0k3"]
 [ext_resource type="Script" path="res://busStage/game_director.gd" id="2_xunmq"]
 [ext_resource type="Script" path="res://busStage/enemy_spawner.gd" id="3_5fa7t"]
 [ext_resource type="PackedScene" uid="uid://d1rbhalexqgng" path="res://enemy/orzel/orzel.tscn" id="3_ifilt"]
 [ext_resource type="Texture2D" uid="uid://cwtx2ctif57wr" path="res://busStage/assets/tlo.png" id="3_m46g4"]
 [ext_resource type="Script" path="res://busStage/bus.gd" id="6_0nbmv"]
+[ext_resource type="Texture2D" uid="uid://cywhf22gmrp6" path="res://busStage/assets/busFull.png" id="6_at4s5"]
 [ext_resource type="PackedScene" uid="uid://b83nmbgv7a6xv" path="res://player/player.tscn" id="7_dy64q"]
 
 [sub_resource type="SystemFont" id="SystemFont_uva26"]
@@ -71,7 +71,7 @@ one_shot = true
 
 [node name="Bus" type="Sprite2D" parent="GameDirector"]
 z_index = -1
-texture = ExtResource("1_ixtao")
+texture = ExtResource("6_at4s5")
 script = ExtResource("6_0nbmv")
 
 [node name="Label" type="Label" parent="GameDirector/Bus"]
