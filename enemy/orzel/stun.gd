@@ -23,7 +23,4 @@ func PhysicsUpdate(delta):
 func _on_stun_timer_timeout() -> void:
 	
 	if state_machine._get_state_name() == "Stun":
-		if myowner.health <= 0:
-			Transitioned.emit("Dead")
-		else:
 			Transitioned.emit("Attack")

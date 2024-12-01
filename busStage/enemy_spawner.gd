@@ -1,6 +1,7 @@
 extends Node2D
 
 @export var enemy_scene: PackedScene
+@export var enemy_scene2: PackedScene
 @export var player: CharacterBody2D
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -14,7 +15,11 @@ func _process(delta: float) -> void:
 func spawn(stacja, amount):
 	
 	for i in range(amount):
-		var enemy = enemy_scene.instantiate()
+		var enemy;
+		if randi()%2==0:
+			enemy = enemy_scene.instantiate()
+		else:
+			enemy = enemy_scene2.instantiate()
 		if enemy:
 			enemy.player = player
 			enemy.SPEED = 500.0

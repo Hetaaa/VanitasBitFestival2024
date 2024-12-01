@@ -7,7 +7,7 @@ func Enter():
 	myowner = state_machine.get_parent()
 	speed_mock = myowner.SPEED
 	myowner.SPEED = 0.0
-	
+	myowner.change_animation("hit")
 	await get_tree().create_timer(0.3).timeout
 	myowner.attacking()
 	await get_tree().create_timer(0.6).timeout

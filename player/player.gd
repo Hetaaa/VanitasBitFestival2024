@@ -17,6 +17,7 @@ var direction
 var no_move : bool = false
 var kasa = 0
 var strength = 20
+var isattacking = false
 signal change_health
 signal change_kasa
 signal player_dead
@@ -35,6 +36,8 @@ func _physics_process(delta: float) -> void:
 	if !move_hold:
 		direction = Input.get_axis("left", "right")
 		if direction:
+			if !isattacking:
+				contents.get_child(0).play("walk");
 			var target_velocity = direction * SPEED
 			velocity.x = lerp(velocity.x, target_velocity, 0.2)  # 0.1 to współczynnik "gładkości"
 			velocity.x = clamp(velocity.x, -SPEED, SPEED)
@@ -43,7 +46,8 @@ func _physics_process(delta: float) -> void:
 				contents.scale.x = direction
 		else:
 			velocity.x = lerp(velocity.x, 0.0, 0.2)
-		
+			if !isattacking:
+				contents.get_child(0).play("idle");
 		if Input.is_action_pressed("up"):
 			if current_offset < offset_treshold:
 				col.global_position.y += 1
@@ -60,12 +64,16 @@ func _physics_process(delta: float) -> void:
 
 
 func attack():
-  contents.get_child(0).play("hit");
+	contents.get_child(0).play("hit");
+	isattacking = true
+	no_move = true
 	for overlap in hit_area.get_overlapping_areas():
 		if overlap.is_in_group("hit") and overlap.get_parent().get_parent() != self:
+			
+			
 			overlap.get_parent().get_parent().get_hit(20, global_position)
-
-	  
+			
+			
 			
 		elif overlap.is_in_group("interact"):
 			move_hold = false
@@ -73,7 +81,8 @@ func attack():
 			no_move = true
 			await DialogueManager.dialogue_ended
 			no_move = false
-
+	await get_tree().create_timer(0.5).timeout
+	no_move = false
 	
 	
 func get_hit(dmg, dir):
@@ -97,22 +106,26 @@ func get_thing(what):
 	change_kasa.emit(kasa)
 	if what == "hotdog":
 		if health <=70:
+			kasa-=10
 			health +=30
 			show_text("+20 HP")
 			change_health.emit(health)
 		else:
 			health = 100
-		
+			
 	elif what == "piwo":
 		strength += 5
+		kasa -= 12
 		show_text("+5 ATAK")
 	elif what == "lombard":
 		wymien_fanty()
+	change_kasa.emit(kasa)
 func wymien_fanty():
 	var reward = fanty * randf_range(0.9, 1.4)
 	fanty = 0
 	reward = int(reward)
-	
+	kasa += reward
+	show_text("+"+str(reward)+"zł")
 
 func _on_hitbox_body_entered(body: Node2D) -> void:
 	if body.is_in_group("Fant"):
@@ -133,3 +146,8 @@ func show_text(tekst):
 func die():
 	player_dead.emit()
 	move_hold = true
+
+
+func _on_animated_sprite_2d_animation_finished() -> void:
+	if isattacking:
+		isattacking = false

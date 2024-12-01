@@ -6,7 +6,6 @@ var myowner
 @onready var state_machine = get_parent()
 func Enter():
 	myowner = state_machine.get_parent()
-	await get_tree().create_timer(3.0).timeout
 	spawnProps()
 	myowner.queue_free()
 
