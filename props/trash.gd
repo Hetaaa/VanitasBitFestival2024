@@ -21,37 +21,37 @@ func _ready() -> void:
 			var cczekolada = preload("res://props/shapes/czekolada.tscn")
 			var c = cczekolada.instantiate()
 			add_child(c) 
-			c.scale = Vector2(0.5, 0.5)
+			c.scale = Vector2(0.25, 0.25)
 		2:
 			sprite.texture = kasa
 			var ckasa = preload("res://props/shapes/kasa.tscn")
 			var c = ckasa.instantiate()
 			add_child(c)
-			c.scale = Vector2(0.5, 0.5)
+			c.scale = Vector2(0.25, 0.25)
 		3:
 			sprite.texture = piwo
 			var cpiwo = preload("res://props/shapes/piwo.tscn")
 			var c = cpiwo.instantiate()
 			add_child(c)
-			c.scale = Vector2(0.5, 0.5)
+			c.scale = Vector2(0.25, 0.25)
 		4:
 			sprite.texture = portfel
 			var cportfel = preload("res://props/shapes/portfel.tscn")
 			var c = cportfel.instantiate()
 			add_child(c)
-			c.scale = Vector2(0.5, 0.5)
+			c.scale = Vector2(0.25, 0.25)
 		5:
 			sprite.texture = tablet
 			var ctablet = preload("res://props/shapes/tablet.tscn")
 			var c = ctablet.instantiate()
 			add_child(c)
-			c.scale = Vector2(0.5, 0.5)
+			c.scale = Vector2(0.25, 0.25)
 		6:	
 			sprite.texture = zegarek
 			var czegarek = preload("res://props/shapes/zegarek.tscn")
 			var c = czegarek.instantiate()
 			add_child(c)
-			c.scale = Vector2(0.5, 0.5)
+			c.scale = Vector2(0.25, 0.25)
 	apply_random_force()
 	apply_random_rotation()
 	timer.start(2)
