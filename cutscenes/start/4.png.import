@@ -2,18 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-
-uid="uid://6y3d37yn1moi"
-
-path="res://.godot/imported/obraz_2024-12-01_014822414.png-1da3f898cd07a1ca8e516f74e87f6cac.ctex"
+uid="uid://dg8d4pr6imfyb"
+path="res://.godot/imported/4.png-bcb1391a437e46b7052013a0a3e1ebe2.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://obraz_2024-12-01_014822414.png"
-dest_files=["res://.godot/imported/obraz_2024-12-01_014822414.png-1da3f898cd07a1ca8e516f74e87f6cac.ctex"]
+source_file="res://cutscenes/start/4.png"
+dest_files=["res://.godot/imported/4.png-bcb1391a437e46b7052013a0a3e1ebe2.ctex"]
 
 [params]
 

@@ -25,6 +25,7 @@ size = Vector2(125.409, 11158.7)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dphc0"]
 size = Vector2(562.625, 380)
 
+
 [sub_resource type="LabelSettings" id="LabelSettings_o18d7"]
 font_size = 96
 font_color = Color(0.645551, 2.56296e-06, 4.81307e-07, 1)
@@ -37,6 +38,7 @@ outline_size = 20
 outline_color = Color(0, 0, 0, 1)
 
 [node name="world" type="Node2D"]
+
 position = Vector2(5, -300)
 
 [node name="Przystanek-os-m" type="Sprite2D" parent="."]
@@ -61,7 +63,10 @@ position = Vector2(-24.2927, 17.2901)
 shape = SubResource("CircleShape2D_ixvjx")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(678.5, 786.61)
+
+visible = false
+position = Vector2(644, 733)
+
 scale = Vector2(2.13647, 0.0984204)
 texture = ExtResource("3_8f36o")
 

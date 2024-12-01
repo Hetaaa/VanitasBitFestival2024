@@ -2,18 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-
-uid="uid://6y3d37yn1moi"
-
-path="res://.godot/imported/obraz_2024-12-01_014822414.png-1da3f898cd07a1ca8e516f74e87f6cac.ctex"
+uid="uid://d2a8epw0v8cmb"
+path="res://.godot/imported/door1.png-8d064b0477ca6cbc0dd223a1d7e31939.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://obraz_2024-12-01_014822414.png"
-dest_files=["res://.godot/imported/obraz_2024-12-01_014822414.png-1da3f898cd07a1ca8e516f74e87f6cac.ctex"]
+source_file="res://busStage/assets/door1.png"
+dest_files=["res://.godot/imported/door1.png-8d064b0477ca6cbc0dd223a1d7e31939.ctex"]
 
 [params]
 
