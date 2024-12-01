@@ -19,13 +19,19 @@ func _physics_process(delta: float) -> void:
 	direction = Input.get_axis("left", "right")
 	if direction:
 		var target_velocity = direction * SPEED
+		
 		velocity.x = lerp(velocity.x, target_velocity, 0.2)  # 0.1 to współczynnik "gładkości"
 		velocity.x = clamp(velocity.x, -SPEED, SPEED)
-
+		contents.get_child(0).play("walk");
+		
+		
 		if contents.scale.x !=direction:
 			contents.scale.x = direction
+			
 	else:
 		velocity.x = lerp(velocity.x, 0.0, 0.2)
+		contents.get_child(0).play("idle");
+		
 	
 	if Input.is_action_pressed("up"):
 		if current_offset < offset_treshold:
@@ -45,6 +51,7 @@ func attack():
 	for overlap in hit_area.get_overlapping_areas():
 		if overlap.is_in_group("hit") and overlap.get_parent().get_parent() != self:
 			overlap.get_parent().get_parent().get_hit(20, global_position)
+	contents.get_child(0).play("hit");
 			
 
 	
