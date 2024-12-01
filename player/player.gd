@@ -1,11 +1,9 @@
 extends CharacterBody2D
 
 @onready var col = $col
-const SPEED = 300.0
+var SPEED = 300.0
 
 
-var fanty = 0
-var health = 100
 
 var offset_treshold =60;
 var current_offset = 0;
@@ -15,29 +13,18 @@ var move_hold : bool = false
 @onready var text = $Text
 var direction
 var no_move : bool = false
-var kasa = 0
-var strength = 20
+
 var isattacking = false
 signal change_health
 signal change_kasa
 signal player_dead
 func _ready() -> void:
 	money.player = self
-	health = Global.health 
-	kasa = Global.kasa
-	fanty = Global.fanty
-	strength = Global.sila
+
 	change_health.emit()
 	change_kasa.emit()
 func _physics_process(delta: float) -> void:
-	Global.health = health
-	Global.kasa = kasa
-	Global.fanty = fanty
-	Global.sila = strength
-	health = Global.health 
-	kasa = Global.kasa
-	fanty = Global.fanty
-	strength = Global.sila
+
 	print (Global.health, Global.kasa, Global.fanty, Global.fanty)
 	# Add the gravity.
 	if not is_on_floor():
@@ -61,15 +48,7 @@ func _physics_process(delta: float) -> void:
 			velocity.x = lerp(velocity.x, 0.0, 0.2)
 			if !isattacking:
 				contents.get_child(0).play("idle");
-		if Input.is_action_pressed("up"):
-			if current_offset < offset_treshold:
-				col.global_position.y += 1
-				current_offset +=1
-		elif Input.is_action_pressed("down"):
-			if current_offset > 0:
-				
-				col.global_position.y -= 1
-				current_offset -= 1
+		
 		if  Input.is_action_just_pressed("attack"):
 			attack()
 		if !no_move:
@@ -99,9 +78,9 @@ func attack():
 	
 	
 func get_hit(dmg, dir):
-		health-=dmg
-		change_health.emit(health)
-		if health <= 0:
+		Global.health-=dmg
+		change_health.emit(Global.health)
+		if Global.health <= 0:
 			die()
 			return
 		
@@ -116,28 +95,31 @@ func get_hit(dmg, dir):
 		
 
 func get_thing(what):
-	change_kasa.emit(kasa)
+	change_kasa.emit(Global.kasa)
 	if what == "hotdog":
-		if health <=70:
-			kasa-=10
-			health +=30
+		if Global.health <=70:
+			Global.kasa-=10
+			Global.health +=30
 			show_text("+20 HP")
-			change_health.emit(health)
+			change_health.emit(Global.health)
 		else:
-			health = 100
+			Global.kasa-=10
+			Global.health = 100
+			show_text("+20 HP")
+			change_health.emit(Global.health)
 			
 	elif what == "piwo":
-		strength += 5
-		kasa -= 12
+		Global.sila += 5
+		Global.kasa -= 12
 		show_text("+5 ATAK")
 	elif what == "lombard":
 		wymien_fanty()
-	change_kasa.emit(kasa)
+	change_kasa.emit(Global.kasa)
 func wymien_fanty():
-	var reward = fanty * randf_range(0.9, 1.4)
-	fanty = 0
+	var reward = Global.fanty * randf_range(0.9, 1.4)
+	Global.fanty = 0
 	reward = int(reward)
-	kasa += reward
+	Global.kasa += reward
 	show_text("+"+str(reward)+"zł")
 
 func _on_hitbox_body_entered(body: Node2D) -> void:
@@ -164,7 +146,16 @@ func die():
 	move_hold = true
 	contents.rotation = -PI/2;
 	contents.position.y = 150;
-
+	
+	SPEED = 0.0
+	await get_tree().create_timer(5).timeout
+	get_tree().change_scene_to_file("res://main_window.tscn")
+	Global.health = 100
+	Global.kasa = 20
+	Global.sila = 20
+	Global.fanty = 0
+	Global.przystanek = 1
+	SPEED = 300
 
 
 func _on_animated_sprite_2d_animation_finished() -> void:

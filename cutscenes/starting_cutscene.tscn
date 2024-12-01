@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://d1kqdeisms8ax"]
+[gd_scene load_steps=8 format=3 uid="uid://d1kqdeisms8ax"]
 
 [ext_resource type="Texture2D" uid="uid://c2cwk1owhx8mh" path="res://cutscenes/start/1.png" id="1_dk2wp"]
 [ext_resource type="Script" path="res://cutscenes/startingCutscene.gd" id="1_u1di0"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://cqid0nyt7lbhr" path="res://cutscenes/Untitled.png" id="4_yhwys"]
 [ext_resource type="Texture2D" uid="uid://brx61r1elgaqu" path="res://cutscenes/start/3.png" id="5_va00e"]
 [ext_resource type="Texture2D" uid="uid://dg8d4pr6imfyb" path="res://cutscenes/start/4.png" id="6_uy4dd"]
+[ext_resource type="AudioStream" uid="uid://ca2t36mpo5gcr" path="res://Midnight Daydreams.mp3" id="7_is5o7"]
 
 [node name="StartingCutscene" type="Node2D"]
 script = ExtResource("1_u1di0")
@@ -33,3 +34,7 @@ texture = ExtResource("5_va00e")
 position = Vector2(578.585, 328.016)
 scale = Vector2(0.618488, 0.618488)
 texture = ExtResource("6_uy4dd")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_is5o7")
+autoplay = true

@@ -15,7 +15,7 @@ func _process(delta: float) -> void:
 	else:
 		space1.hide()
 	if Input.is_action_pressed("spacja") and canChangeScene == 1:
-		get_tree().change_scene_to_file("res://busStage/world.tscn")
+		get_tree().change_scene_to_file("res://main_window.tscn")
 
 
 

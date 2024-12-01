@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://xvu1s63a0gx4"]
+[gd_scene load_steps=14 format=3 uid="uid://n8vtdxfs6twe"]
 
 [ext_resource type="Texture2D" uid="uid://e6err4wskmyy" path="res://sklep/zabka/przystanek-removebg-preview.png" id="1_h8ode"]
 [ext_resource type="Texture2D" uid="uid://doa8qnbpa1jr6" path="res://sklep/lombard/lombard-removebg-preview.png" id="2_4gowd"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://cwtx2ctif57wr" path="res://busStage/assets/tlo.png" id="6_3pmmc"]
 [ext_resource type="Script" path="res://sklep/bar/przystanek.gd" id="7_m0ax4"]
 [ext_resource type="Texture2D" uid="uid://brnw1j7cptbnc" path="res://busStage/spacja-removebg-preview.png" id="8_k47sx"]
+[ext_resource type="AudioStream" uid="uid://ca2t36mpo5gcr" path="res://Midnight Daydreams.mp3" id="9_6iypt"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ixvjx"]
 radius = 76.0726
@@ -87,6 +88,10 @@ texture = ExtResource("8_k47sx")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Przystanek-os-m2/Area2D"]
 position = Vector2(40.793, 157.047)
 shape = SubResource("RectangleShape2D_jomc2")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("9_6iypt")
+autoplay = true
 
 [connection signal="body_entered" from="Przystanek-os-m2/Area2D" to="Przystanek-os-m2" method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Przystanek-os-m2/Area2D" to="Przystanek-os-m2" method="_on_area_2d_body_exited"]

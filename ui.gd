@@ -5,13 +5,10 @@ extends CanvasLayer
 
 @onready var game_over = $Screen/Die
 
-func _on_player_change_health(health) -> void:
-	health_ui.value = health
 
-
-func _on_player_change_kasa(kasa) -> void:
-	money_ui.text = str(kasa) + "zł"
-
+func _process(delta: float) -> void:
+	health_ui.value = Global.health
+	money_ui.text = str(Global.kasa) + "zł"
 
 func _on_player_player_dead() -> void:
 	game_over.show()

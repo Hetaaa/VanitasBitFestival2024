@@ -278,7 +278,7 @@ shape = SubResource("RectangleShape2D_se461")
 zoom = Vector2(0.8, 0.8)
 limit_left = -1475
 limit_top = -450
-limit_right = 1450
+limit_right = 1425
 limit_bottom = 430
 limit_smoothed = true
 

@@ -28,7 +28,7 @@ outline_color = Color(0.6, 0, 0, 1)
 distance = -443.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4kjgy"]
-size = Vector2(441.375, 481)
+size = Vector2(441.375, 696.5)
 
 [node name="World" type="Node2D"]
 

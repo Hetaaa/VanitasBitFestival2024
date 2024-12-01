@@ -3,9 +3,9 @@
 [ext_resource type="Texture2D" uid="uid://tacgp6331bou" path="res://ui/healt.png" id="1_s1saf"]
 [ext_resource type="PackedScene" uid="uid://dlajimkc33lpr" path="res://busStage/world.tscn" id="1_slp3n"]
 [ext_resource type="Script" path="res://main_window.gd" id="1_y6jnc"]
-[ext_resource type="PackedScene" path="res://enemy/orzel/orzelbiz.tscn" id="2_5lomg"]
 [ext_resource type="Script" path="res://ui.gd" id="2_bxw0e"]
 [ext_resource type="Theme" uid="uid://b73y4jutnwuue" path="res://themes/theme.tres" id="3_5kfhv"]
+[ext_resource type="AudioStream" uid="uid://c2n5g5lp6henj" path="res://The Raging Storm.mp3" id="3_6basy"]
 [ext_resource type="Texture2D" uid="uid://06ca2vlxxvk0" path="res://cooltext470956255209280-ezgif.com-gif-to-jpg-converter.png" id="5_lvf7u"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_bsjr6"]
@@ -24,11 +24,12 @@ script = ExtResource("1_y6jnc")
 
 [node name="World" parent="." instance=ExtResource("1_slp3n")]
 
-[node name="EnemySpawner" parent="World/GameDirector" index="0"]
-enemy_scene2 = ExtResource("2_5lomg")
+[node name="CollisionShape2D2" parent="World/Map/Area2D2" index="0"]
+position = Vector2(784, 202.75)
 
-[node name="EnemySpawner2" parent="World/GameDirector" index="1"]
-enemy_scene2 = ExtResource("2_5lomg")
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="World"]
+stream = ExtResource("3_6basy")
+autoplay = true
 
 [node name="UI" type="CanvasLayer" parent="."]
 layer = 3
