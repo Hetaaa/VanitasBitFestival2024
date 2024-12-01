@@ -17,7 +17,7 @@ var kasa = 0
 var strength = 20
 signal change_health
 signal change_kasa
-
+signal player_dead
 func _ready() -> void:
 	money.player = self
 
@@ -112,3 +112,7 @@ func show_text(tekst):
 	text.show()
 	await get_tree().create_timer(0.5).timeout
 	text.hide()
+
+func die():
+	player_dead.emit()
+	move_hold = true
