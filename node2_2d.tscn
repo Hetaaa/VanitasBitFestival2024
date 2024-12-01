@@ -1,0 +1,34 @@
+[gd_scene load_steps=8 format=3 uid="uid://dxnflhfseadvg"]
+
+[ext_resource type="AudioStream" uid="uid://ca2t36mpo5gcr" path="res://Midnight Daydreams.mp3" id="1_2kj4u"]
+[ext_resource type="AudioStream" uid="uid://c2n5g5lp6henj" path="res://The Raging Storm.mp3" id="2_knj7i"]
+[ext_resource type="AudioStream" uid="uid://d1cpviywrjpbq" path="res://dropping-single-coin-on-floor-1-96050.mp3" id="3_x2udo"]
+[ext_resource type="AudioStream" uid="uid://c8vrs1qviin64" path="res://punch-2-37333.mp3" id="4_t6o1j"]
+[ext_resource type="AudioStream" uid="uid://bw0smgrmmjj6x" path="res://nearby-city-street-ambience-192219.mp3" id="5_ih73g"]
+[ext_resource type="AudioStream" uid="uid://dgj8nf7fb4w15" path="res://clicky-mouse-click-182496.mp3" id="6_4fvha"]
+[ext_resource type="AudioStream" uid="uid://b0xrjvyfggn1y" path="res://open-door-sound-247415.mp3" id="7_ieqpd"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="spokojna" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("1_2kj4u")
+volume_db = 5.622
+
+[node name="agresywna" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_knj7i")
+volume_db = 5.622
+
+[node name="moneta" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_x2udo")
+
+[node name="punch" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_t6o1j")
+
+[node name="Miejski hałas" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_ih73g")
+
+[node name="Dźwięk myszki" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_4fvha")
+
+[node name="otwieranie drzwi" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_ieqpd")

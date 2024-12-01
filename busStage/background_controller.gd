@@ -4,6 +4,11 @@ extends Node2D
 @onready var Background2 = $Background2
 @onready var Background3 = $Background3
 
+@onready var Bar = $Bar
+@onready var Zakba = $Zabka
+@onready var Auto = $Auto
+@onready var Lombard = $Lombard	
+
 var scrollspeed = 3.1
 var scrollItems = []
 
@@ -30,6 +35,19 @@ func _process(delta: float) -> void:
 		Background2.position.x = 2475
 	if Background3.position.x < -2200:
 		Background3.position.x = 2475	
+	
+	if Bar.position.x < -2200:
+		Bar.position.x = 2475	
+		scrollItems.erase(Bar)
+	if Zakba.position.x < -2200:
+		Zakba.position.x = 2475	
+		scrollItems.erase(Zakba)
+	if Auto.position.x < -2200:
+		Auto.position.x = 2475	
+		scrollItems.erase(Auto)
+	if Lombard.position.x < -2200:
+		Lombard.position.x = 2475	
+		scrollItems.erase(Lombard)
 
 
 func przyjazd():
@@ -57,3 +75,22 @@ func odjazd():
 	scrollspeed = 2.5
 	await get_tree().create_timer(1).timeout
 	scrollspeed = 3
+
+func spawnObj(no):
+	match no:
+		7:
+			qAuto()
+		2:
+			qZakba()
+		4: 
+			qBar()
+		5: 
+			qLombard()
+func qZakba():
+	scrollItems.append(Zakba)
+func qBar():
+	scrollItems.append(Bar)
+func qAuto():
+	scrollItems.append(Auto)
+func qLombard():
+	scrollItems.append(Lombard)
