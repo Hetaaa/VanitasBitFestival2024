@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://dlajimkc33lpr"]
+[gd_scene load_steps=13 format=3 uid="uid://dlajimkc33lpr"]
 
 [ext_resource type="Texture2D" uid="uid://bknt8om01avtm" path="res://busStage/assets/bus.png" id="1_ixtao"]
 [ext_resource type="Script" path="res://busStage/background_controller.gd" id="2_ww0k3"]
@@ -20,6 +20,9 @@ outline_color = Color(0.6, 0, 0, 1)
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_3by7g"]
 distance = -443.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4kjgy"]
+size = Vector2(441.375, 481)
 
 [node name="World" type="Node2D"]
 
@@ -107,4 +110,21 @@ collision_mask = 7
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Map/StaticBody2D"]
 shape = SubResource("WorldBoundaryShape2D_3by7g")
 
+[node name="Area2D" type="Area2D" parent="Map"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Map/Area2D"]
+position = Vector2(-806.688, 147.5)
+shape = SubResource("RectangleShape2D_4kjgy")
+
+[node name="Area2D2" type="Area2D" parent="Map"]
+position = Vector2(-12, 24)
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Map/Area2D2"]
+position = Vector2(784, 95)
+shape = SubResource("RectangleShape2D_4kjgy")
+
 [connection signal="timeout" from="GameDirector/Timer" to="GameDirector" method="_on_timer_timeout"]
+[connection signal="body_entered" from="Map/Area2D" to="GameDirector" method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Map/Area2D" to="GameDirector" method="_on_area_2d_body_exited"]
+[connection signal="body_entered" from="Map/Area2D2" to="GameDirector" method="_on_area_2d_2_body_entered"]
+[connection signal="body_exited" from="Map/Area2D2" to="GameDirector" method="_on_area_2d_2_body_exited"]

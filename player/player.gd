@@ -3,8 +3,10 @@ extends CharacterBody2D
 @onready var col = $col
 const SPEED = 300.0
 
+
 var fanty = 0
 var health = 100
+
 var offset_treshold =60;
 var current_offset = 0;
 var move_hold : bool = false
@@ -20,6 +22,7 @@ signal change_kasa
 signal player_dead
 func _ready() -> void:
 	money.player = self
+	
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
@@ -104,8 +107,10 @@ func _on_hitbox_body_entered(body: Node2D) -> void:
 	if body.is_in_group("Fant"):
 		if body.canDie == 1:
 			body.queue_free()
+
+			Global.fanty += 1
 			show_text("+1 Fant")
-			fanty += 1
+
 
 func show_text(tekst):
 	text.text = tekst
@@ -113,6 +118,8 @@ func show_text(tekst):
 	await get_tree().create_timer(0.5).timeout
 	text.hide()
 
+
 func die():
 	player_dead.emit()
 	move_hold = true
+
