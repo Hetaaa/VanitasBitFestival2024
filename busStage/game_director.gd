@@ -57,8 +57,8 @@ func _on_timer_timeout() -> void:
 			timer.start()
 			print("Busstate: Stop")
 			
-			enemySpawner.spawn(busStop, 3)
-			enemySpawner2.spawn(busStop, 3)
+			enemySpawner.spawn(busStop, 2)
+			enemySpawner2.spawn(busStop, 2)
 		3:
 			state = 0
 			timer.wait_time = 3

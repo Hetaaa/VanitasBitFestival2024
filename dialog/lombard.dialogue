@@ -13,6 +13,7 @@ Mirek: Kradzione, nie kradzione, jaką to robi różnice mincerzowi?
 ~ lombard
 Mirek: Pokaż mi swoje towary
 - Daj "zdobycze"
+	do give_player(0, "lombard")
 	Mirek: Wybornie, wyborne.
 - Wyjdź
 => END

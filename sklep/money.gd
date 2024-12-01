@@ -7,5 +7,7 @@ func take_money():
 func get_money():
 	return money
 
-func give_player():
-	player.get_thing()
+func give_player(ask, what):
+	if money >= ask:
+		player.get_thing(what)
+		
