@@ -31,6 +31,7 @@ func _physics_process(delta: float) -> void:
 	
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
+
 	if !move_hold:
 		direction = Input.get_axis("left", "right")
 		if direction:
@@ -57,17 +58,22 @@ func _physics_process(delta: float) -> void:
 		if !no_move:
 			move_and_slide()
 
-func attack():
 
+func attack():
+  contents.get_child(0).play("hit");
 	for overlap in hit_area.get_overlapping_areas():
 		if overlap.is_in_group("hit") and overlap.get_parent().get_parent() != self:
 			overlap.get_parent().get_parent().get_hit(20, global_position)
+
+	  
+			
 		elif overlap.is_in_group("interact"):
 			move_hold = false
 			overlap.get_parent().interact()
 			no_move = true
 			await DialogueManager.dialogue_ended
 			no_move = false
+
 	
 	
 func get_hit(dmg, dir):
