@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://c2n5g5lp6henj"
+path="res://.godot/imported/The Raging Storm.mp3-432e9d09a05ceaea7541e7cccbf953a7.mp3str"
+
+[deps]
+
+source_file="res://The Raging Storm.mp3"
+dest_files=["res://.godot/imported/The Raging Storm.mp3-432e9d09a05ceaea7541e7cccbf953a7.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
